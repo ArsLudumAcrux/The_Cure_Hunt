@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class ExpBar : MonoBehaviour {
 
-    Statistics stat;
+    public Statistics stat;
     public Image experiencia_img;
-    Slime_Stats slime_stats;
+    public float expCur;
+    //Slime_Stats slime_stats;
 
     public void Start()
     {
+        stat = FindObjectOfType<Statistics>();
         experiencia_img = GetComponent<Image>();
     }
     public void Update()
     {
-        experiencia_img.fillAmount = stat.ExpAtual / stat.ExpAtual;
+        expCur = stat.ExpAtual / stat.XPToNextLevel;
+        experiencia_img.fillAmount = expCur;
+
+        //if (stat.ExpAtual == stat.XPToNextLevel) { 
+        //    stat.ExpAtual = 0;
+        //}
 
         if (stat.ExpAtual >= stat.XPToNextLevel)
         {
@@ -24,6 +31,8 @@ public class ExpBar : MonoBehaviour {
             stat.HP_Max = Mathf.Round(stat.HP_Max * 1.05f);
             //source.PlayOneShot(LevelUp, 1.0f);
             stat.LevelText.text = stat.Level.ToString();
+            //stat.ExpAtual = 0;
+            experiencia_img.fillAmount = 0f;
             PlayerPrefs.SetInt("LevelDoPlayer", stat.Level);
             Debug.Log("LevelDoPlayer" + stat.Level);
             Debug.Log("Vida maxima atual: " + stat.HP_Max);
@@ -34,7 +43,7 @@ public class ExpBar : MonoBehaviour {
         int Exp = Random.Range(xpMin, xpMax);
         stat.ExpAtual += Exp;
         //experiencia_img.fillAmount = stat.ExpAtual / stat.ExpAtual;
-        print("Experiencia Ganha:" + Exp);
-        print("Experiencia atual:" + stat.ExpAtual);
+        Debug.Log("Experiencia Ganha:" + Exp);
+        Debug.Log("Experiencia atual:" + stat.ExpAtual);
     }
 }
