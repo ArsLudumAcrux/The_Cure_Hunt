@@ -12,11 +12,13 @@ public class Hud_Menu : MonoBehaviour
     public GameObject PanelEspadas;
     public GameObject PanelConfig;
     public GameObject PanelInv;
+    public GameObject PanelMagia;
     public GameObject PanelTutorial;
     [Header("Botoes")]
     public GameObject BordaEspadas;
     public GameObject BordaConfig;
     public GameObject BordaInv;
+    public GameObject BordaMagia;
     // variavel para pausar o jogo //
     public bool paused;
     [Header("Equipe a espada")]
@@ -35,10 +37,12 @@ public class Hud_Menu : MonoBehaviour
         BordaConfig.SetActive(false);
         BordaEspadas.SetActive(true);
         BordaInv.SetActive(false);
+        BordaMagia.SetActive(false);
 
         PanelConfig.SetActive(false);
         PanelEspadas.SetActive(true);
         PanelInv.SetActive(false);
+        PanelMagia.SetActive(false);
 
     }
     public void Update()
@@ -88,30 +92,48 @@ public class Hud_Menu : MonoBehaviour
             BordaConfig.SetActive(false);
             BordaEspadas.SetActive(true);
             BordaInv.SetActive(false);
+            BordaMagia.SetActive(false);
 
             PanelConfig.SetActive(false);
             PanelEspadas.SetActive(true);
             PanelInv.SetActive(false);
+            PanelMagia.SetActive(false);
         }
         if (name == "Config")
         {
             BordaConfig.SetActive(true);
             BordaEspadas.SetActive(false);
             BordaInv.SetActive(false);
+            BordaMagia.SetActive(false);
 
             PanelConfig.SetActive(true);
             PanelEspadas.SetActive(false);
             PanelInv.SetActive(false);
+            PanelMagia.SetActive(false);
         }
         if (name == "Inv")
         {
             BordaConfig.SetActive(false);
             BordaEspadas.SetActive(false);
             BordaInv.SetActive(true);
+            BordaMagia.SetActive(false);
 
             PanelConfig.SetActive(false);
             PanelEspadas.SetActive(false);
             PanelInv.SetActive(true);
+            PanelMagia.SetActive(false);
+        }
+        if (name == "Magia")
+        {
+            BordaConfig.SetActive(false);
+            BordaEspadas.SetActive(false);
+            BordaInv.SetActive(false);
+            BordaMagia.SetActive(true);
+
+            PanelConfig.SetActive(false);
+            PanelEspadas.SetActive(false);
+            PanelInv.SetActive(false);
+            PanelMagia.SetActive(true);
         }
     }
 
