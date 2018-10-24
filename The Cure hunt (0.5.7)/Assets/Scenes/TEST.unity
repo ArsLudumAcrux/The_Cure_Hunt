@@ -554,6 +554,11 @@ Prefab:
       propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114740511841581170, guid: e5504bfb4a2382143a2ef8b707ed1dd0,
+        type: 2}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 1832153589}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
   m_IsPrefabAsset: 0
@@ -1389,6 +1394,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1815769798826862, guid: c5cb0cd77590ef74fb60cd1eaf05ee2d,
     type: 2}
   m_PrefabInternal: {fileID: 319181948}
+--- !u!114 &1832153589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114588268279734566, guid: c5cb0cd77590ef74fb60cd1eaf05ee2d,
+    type: 2}
+  m_PrefabInternal: {fileID: 319181948}
+  m_Script: {fileID: 11500000, guid: b5a5085e357c78f48a6662519eb18ac7, type: 3}
 --- !u!1 &1949019156
 GameObject:
   m_ObjectHideFlags: 0
