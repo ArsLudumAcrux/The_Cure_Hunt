@@ -26,35 +26,62 @@ public class Magic : MonoBehaviour {
     {
         GemaFloresta.gameObject.SetActive(false);
         GemaFogo.gameObject.SetActive(false);
-        GemasBloqueadas[0].gameObject.SetActive(true);
-        GemasBloqueadas[1].gameObject.SetActive(true);
+
+        for (int i = 0; i < GemasBloqueadas.Length; i++)
+        {
+            GemasBloqueadas[i].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < Text.Length; i++)
+        {
+            Text[i].gameObject.SetActive(false);
+        }
     }
     public void Update()
     {
 
     }
-    public void GemasBloq(string name)
+    //Função de clique para o botão, para que mostre o texto //
+    public void GemasBloqText(string name)
     {
         if(name == "Bloq1")
         {
+            Text[0].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
         if (name == "Bloq2")
         {
+            Text[1].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
         if (name == "Bloq3")
         {
+            Text[2].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
         if (name == "Bloq4")
         {
+            Text[3].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
         if (name == "Bloq5")
         {
+            Text[4].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
         if (name == "Bloq6")
         {
+            Text[5].gameObject.SetActive(true);
+            StartCoroutine(TimeScaleGema());
         }
     }
-
+    //Invoke para desativar o texto //
+    //public void HideText()
+    //{
+    //    for (int i = 0; i < Text.Length; i++)
+    //    {
+    //        Text[i].gameObject.SetActive(false);
+    //    }
+    //}
     public void MagiaAtual(string name)
     {
         if(name == "Floresta")
@@ -67,5 +94,12 @@ public class Magic : MonoBehaviour {
             GemaAtual.GetComponent<Image>().sprite = GemaVerm;
         }
     }
-
+    IEnumerator TimeScaleGema()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        for (int i = 0; i < Text.Length; i++)
+        {
+            Text[i].gameObject.SetActive(false);
+        }
+    }
 }

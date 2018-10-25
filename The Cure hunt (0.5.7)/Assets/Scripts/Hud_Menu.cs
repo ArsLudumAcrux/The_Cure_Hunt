@@ -25,6 +25,11 @@ public class Hud_Menu : MonoBehaviour
     public Image TextArm;
     [Header("Placas")]
     public GameObject[] Placas;
+    public string borracha;
+    public string nomeSwrd;
+
+
+    
 
     void Start()
     {
@@ -47,6 +52,8 @@ public class Hud_Menu : MonoBehaviour
     }
     public void Update()
     {
+        
+
         Cursor.visible = paused;
 
         if (Input.GetKeyDown(KeyCode.Tab) || (Input.GetKeyDown(KeyCode.M)))
@@ -69,6 +76,12 @@ public class Hud_Menu : MonoBehaviour
         }
 
     }
+
+    public void BtnSword(string borracha)
+    {
+        borracha = nomeSwrd;
+        StartCoroutine(Animacao());
+    }
     public void ArmaEquipada()
     {
         TextArm.gameObject.SetActive(true);
@@ -79,7 +92,6 @@ public class Hud_Menu : MonoBehaviour
     {
         TextArm.gameObject.SetActive(false);
     } 
-
     public void botao(string name)
     {
         if (name == "Resume")
@@ -135,15 +147,7 @@ public class Hud_Menu : MonoBehaviour
             PanelInv.SetActive(false);
             PanelMagia.SetActive(true);
         }
-    }
-
-    public void ApertouBotao(string name)
-    {
-        Borrada = name;
-        print(Borrada);
-        StartCoroutine(Animacao(name));
-        
-    }
+    } 
     void AbrirFecharMenu()
     {
         PanelMenu.SetActive(!PanelMenu.activeInHierarchy);
@@ -157,31 +161,35 @@ public class Hud_Menu : MonoBehaviour
         paused = false;
         //Cursor.visible = false;
     }
-    public IEnumerator Animacao(string name)
+    IEnumerator Animacao()
     {
-        if (Borrada == "Sword1")
-        {
-            anim.Play("Espada_Borrada1_FadeOut");
-            yield return new WaitForSeconds(2f);
-            anim.Play("Espada_Borrada1_Esconder");
-        }
-        if (Borrada == "Sword2")
-        {
-            anim.Play("Espada_Borrada2_FadeOut");
-            yield return new WaitForSeconds(2f);
-            anim.Play("Espada_Borrada2_Esconder");
-        }
-        if (Borrada == "Sword3")
-        {
-            anim.Play("Espada_Borrada3_FadeOut");
-            yield return new WaitForSeconds(2f);
-            anim.Play("Espada_Borrada3_Esconder");
-        }
-        if (Borrada == "Sword4")
-        {
-            anim.Play("Espada_Borrada4_FadeOut");
-            yield return new WaitForSeconds(2f);
-            anim.Play("Espada_Borrada4_Esconder");
-        }
+        
+        yield return new WaitForSecondsRealtime(0.1f);
+        anim.SetBool("EspadaBorrada_FadeOut", true);
+        anim.SetBool("EspadaBorrada_Esconder", false);
+
+        yield return new WaitForSecondsRealtime(2f);
+        anim.SetBool("EspadaBorrada_FadeOut", false);
+        anim.SetBool("EspadaBorrada_Esconder", true);
+
+
+        //if (Boiola == "Sword2")
+        //{
+        //    anim.Play("Espada_Borrada2_FadeOut");
+        //    yield return new WaitForSecondsRealtime(2f);
+        //    anim.Play("Espada_Borrada2_Esconder");
+        //}
+        //if (Boiola == "Sword3")
+        //{
+        //    anim.Play("Espada_Borrada3_FadeOut");
+        //    yield return new WaitForSecondsRealtime(2f);
+        //    anim.Play("Espada_Borrada3_Esconder");
+        //}
+        //if (Boiola == "Sword4")
+        //{
+        //    anim.Play("Espada_Borrada4_FadeOut");
+        //    yield return new WaitForSecondsRealtime(2f);
+        //    anim.Play("Espada_Borrada4_Esconder");
+        //}
     }
 }
