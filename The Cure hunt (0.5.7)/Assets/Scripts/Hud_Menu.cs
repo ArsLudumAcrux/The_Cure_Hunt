@@ -62,13 +62,13 @@ public class Hud_Menu : MonoBehaviour
             AbrirFecharMenu();
         }
 
-        if (paused)
-        {
-           Time.timeScale = 0;
-        } else
-        {
-            Time.timeScale = 1;
-        }
+        //if (paused)
+        //{
+        //   Time.timeScale = 0;
+        //} else
+        //{
+        //    Time.timeScale = 1;
+        //}
 
         if (Input.anyKeyDown && PanelTutorial.activeInHierarchy)
         {
@@ -152,6 +152,8 @@ public class Hud_Menu : MonoBehaviour
     {
         PanelMenu.SetActive(!PanelMenu.activeInHierarchy);
         paused = !paused;
+        float blablbla = paused ? 0 : 1;
+        Time.timeScale = blablbla;
         //Cursor.visible = !Cursor.visible;
 
     }
@@ -159,6 +161,7 @@ public class Hud_Menu : MonoBehaviour
     {
         PanelMenu.SetActive(false);
         paused = false;
+        //Time.timeScale = 1;
         //Cursor.visible = false;
     }
     IEnumerator Animacao()

@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114670513530508094}
   - component: {fileID: 114628371768102976}
   - component: {fileID: 58401028585422914}
+  - component: {fileID: 95630112215813928}
   m_Layer: 0
   m_Name: TroncoTest
   m_TagString: Untagged
@@ -118,6 +119,24 @@ CircleCollider2D:
   m_Offset: {x: -0.0055274367, y: -0.05064392}
   serializedVersion: 2
   m_Radius: 0.19358826
+--- !u!95 &95630112215813928
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381731133545420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114628371768102976
 MonoBehaviour:
   m_ObjectHideFlags: 1

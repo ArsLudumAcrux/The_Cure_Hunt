@@ -32,7 +32,7 @@ public class AttackSword : MonoBehaviour {
                 {
                     Slime.morreu = true;
                     drop.DroparMoeda();
-                    expBar.Experiencia(Slime.xpMin, Slime.xpMax);
+                    expBar.Experiencia(Slime.xpMin,Slime.xpMax);
                     GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;
@@ -68,7 +68,7 @@ public class AttackSword : MonoBehaviour {
                 {
                     Tronco.morreu = true;
                     drop.DroparMoeda();
-                    expBar.Experiencia(Tronco.xpMin, Tronco.xpMax);
+                    //expBar.Experiencia(Tronco.xpMin, Tronco.xpMax);
                     GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;

@@ -22,7 +22,7 @@ public class FixDepth : MonoBehaviour {
 	void Update () {
 		if (fixEveryFrame) {
             //spr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
-           meshRender.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
+           //meshRender.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
         }
 	}
 }

@@ -100,17 +100,17 @@ public class MainCamera : MonoBehaviour {
 
         if (MapaAtual == ("Bosque"))
         {
-            print(MapaAtual);
+            
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin1, xMax1), Mathf.Clamp(target.position.y, yMin1, yMax1), transform.position.z);
         }
         if (MapaAtual == ("Caverna"))
         {
-            print(MapaAtual);
+            
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin2, xMax2), Mathf.Clamp(target.position.y, yMin2, yMax2), transform.position.z);
         }
         if (MapaAtual == ("Bosque2"))
         {
-            print(MapaAtual);
+            
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin3, xMax3), Mathf.Clamp(target.position.y, yMin3, yMax3), transform.position.z);
         }
     }

@@ -134,13 +134,13 @@ Vector3 dir = (target - transform.position).normalized;
             // En caso contrario nos movemos hacia él
             else
             {
-                rb2d.MovePosition(transform.position + dir* speed * Time.deltaTime);
+                //rb2d.MovePosition(transform.position + dir* speed * Time.deltaTime);
 /////////////////////////////////////////////  "CATARINA" /////////////////////////////////////////////////////////////
 // Al movernos establecemos la animación de movimiento
-anim.speed = 1;
-                anim.SetFloat("MovX", dir.x);
-                anim.SetFloat("MovY", dir.y);
-                anim.SetBool("Walking", true);
+                //anim.speed = 1;
+                //anim.SetFloat("MovX", dir.x);
+                //anim.SetFloat("MovY", dir.y);
+                //anim.SetBool("Walking", true);
             }
             /////////////////////////////////////////////  "CATARINA" /////////////////////////////////////////////////////////////
             // Una última comprobación para evitar bugs forzando la posición inicial

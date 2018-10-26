@@ -8,7 +8,7 @@ public class ExpBar : MonoBehaviour {
     public Statistics stat;//variavel referente ao script Statistics
     public Image experiencia_img;
     public float expCur;
-    //Slime_Stats slime_stats;
+    Slime_Stats slime_stats;
 
     public void Start()
     {
