@@ -811,7 +811,24 @@ Prefab:
       propertyPath: experiencia_img
       value: 
       objectReference: {fileID: 999446950}
-    m_RemovedComponents: []
+    - target: {fileID: 1624799734675164, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523724081675974, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402110436503522, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758653290951516, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114573638499951240, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e5504bfb4a2382143a2ef8b707ed1dd0, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &455169511
@@ -2634,7 +2651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456595805
 RectTransform:
   m_ObjectHideFlags: 0
