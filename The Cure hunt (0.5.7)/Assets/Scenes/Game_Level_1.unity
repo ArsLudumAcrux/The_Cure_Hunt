@@ -439,6 +439,7 @@ MonoBehaviour:
   ExpAtual: 0
   XPToNextLevel: 10
   Gold: 0
+  strongh: 0
   TempoDeJogo: 199.29793
   HpPerdido: 0
   CopperCoin: {fileID: 0}
@@ -43958,7 +43959,6 @@ GameObject:
   - component: {fileID: 1930420320}
   - component: {fileID: 1930420319}
   - component: {fileID: 1930420318}
-  - component: {fileID: 1930420321}
   m_Layer: 0
   m_Name: O_A5_Forest
   m_TagString: Untagged
@@ -44036,18 +44036,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930420316}
   m_Mesh: {fileID: 4300000, guid: 1c0b44bc48aec5b4f8ec6b78344c50e9, type: 3}
---- !u!114 &1930420321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1930420316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f66c2029d985345b7634db02c103c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixEveryFrame: 0
 --- !u!1 &1935340606
 GameObject:
   m_ObjectHideFlags: 0
