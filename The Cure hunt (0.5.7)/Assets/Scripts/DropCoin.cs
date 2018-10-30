@@ -7,6 +7,10 @@ public class DropCoin : MonoBehaviour {
 
     public GameObject Coin;
 
+    private void Start()
+    {
+        //stats.GetComponent<Statistics>();
+    }
     public void DroparMoeda()
     {
       int Drop = Random.Range(1, 5);
@@ -14,14 +18,4 @@ public class DropCoin : MonoBehaviour {
         Instantiate(Coin,transform.position,transform.rotation);
 
     }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-
-
-        }
-    }
-
 }

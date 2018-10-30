@@ -161,6 +161,8 @@ public class Hud_Menu : MonoBehaviour
     {
         PanelMenu.SetActive(false);
         paused = false;
+        float blablbla = paused ? 0 : 1;
+        Time.timeScale = blablbla;
         //Time.timeScale = 1;
         //Cursor.visible = false;
     }
