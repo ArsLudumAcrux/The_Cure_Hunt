@@ -16,7 +16,7 @@ public class Slime_Stats : MonoBehaviour {
 	void Start () {
         anim = GetComponent<Animator>();
         inimigo = GetComponent<EnemySlime>();
-        experiencia = GetComponent<ExpBar>();
+        experiencia = GameObject.FindGameObjectWithTag("ExpBar").GetComponent<ExpBar>();
     }
     public void Update()
     {     

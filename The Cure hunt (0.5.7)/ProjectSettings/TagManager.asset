@@ -23,6 +23,7 @@ TagManager:
   - Content
   - Tronco
   - Coin
+  - ExpBar
   layers:
   - Default
   - TransparentFX

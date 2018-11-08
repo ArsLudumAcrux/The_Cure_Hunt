@@ -10,7 +10,7 @@ public class Projetil : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Invoke("DestroyProjetil", 3);
+        Invoke("DestroyProjetil", 5.5f);
         HB = GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>();
     }
 

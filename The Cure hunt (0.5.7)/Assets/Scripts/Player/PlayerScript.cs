@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour {
 	Rigidbody2D rb2d;
 	Vector2 Mov;  // Agora é visível nos métodos
     Sword sword;
+  
 
 	public CircleCollider2D attackCollider;
 
@@ -85,9 +86,11 @@ public class PlayerScript : MonoBehaviour {
 		realize a animação de ataque caso a tecla espaço for pressionada, e além disso, só permite a execução da
 		animação caso o jogador não esteja com esta animação de ataque sendo executada no exato momento que ele
 		pressionar a tecla espaço. (Por esse motivo aquela parte "&& !attacking"							  */
+            
             if (sword.Sword_CurrentDamage != 0)
             {
                 anim.SetTrigger("Attacking");
+                AudioManager.instancia.PlaySFX(AudioManager.instancia.attackClip);
             }
             else
             {
@@ -123,6 +126,7 @@ public class PlayerScript : MonoBehaviour {
 			Isso também impede que o jogador fique dedilhando a tecla espaço fazendo com que a direção que ele esteja
 			olhando se torne uma área onde o dano seja sempre constante */
         if (attacking){
+            
 			float PlaybackTime = stateInfo.normalizedTime;
             if (PlaybackTime > 0.2 && PlaybackTime < 0.7)
             {
@@ -134,6 +138,7 @@ public class PlayerScript : MonoBehaviour {
                 attackCollider.enabled = false;
                 //    print("nao atacou");
             }
+            
 
         }
 

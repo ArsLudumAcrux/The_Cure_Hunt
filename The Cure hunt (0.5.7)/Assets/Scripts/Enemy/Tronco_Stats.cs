@@ -28,11 +28,12 @@ public class Tronco_Stats : MonoBehaviour {
     {
 
         inimigo.speed = speed;
+        Destroy(gameObject);
 
     }
     void DestroyObject()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
 
