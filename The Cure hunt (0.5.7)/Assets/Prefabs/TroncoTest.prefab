@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 114628371768102976}
   - component: {fileID: 58401028585422914}
   - component: {fileID: 95630112215813928}
+  - component: {fileID: 50750925234226342}
   m_Layer: 0
   m_Name: TroncoTest
-  m_TagString: Untagged
+  m_TagString: Tronco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +105,26 @@ Transform:
   m_Father: {fileID: 4605951987946898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -45}
+--- !u!50 &50750925234226342
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381731133545420}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &58401028585422914
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -171,7 +192,7 @@ MonoBehaviour:
   BulletRotator: {fileID: 4701586741016478}
   visionRadius: 11
   attackRadius: 8
-  speed: 0
+  speed: 1
   damage: 5
   statstronco: {fileID: 114628371768102976}
   ObjectPlayer: {fileID: 0}

@@ -11,17 +11,19 @@ public class Slime_Stats : MonoBehaviour {
     public int xpMin, xpMax;
 
     public EnemySlime inimigo;
-
+    ExpBar experiencia;
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
         inimigo = GetComponent<EnemySlime>();
-	}
+        experiencia = GameObject.FindGameObjectWithTag("ExpBar").GetComponent<ExpBar>();
+    }
     public void Update()
     {     
         anim.SetBool("Morrer", morreu);
         if (morreu)
         {
+            
             velocidade(0);
         }
     }
@@ -33,6 +35,7 @@ public class Slime_Stats : MonoBehaviour {
     }
     void DestroyObject()
     {
+        experiencia.Experiencia(xpMin, xpMax);
         Destroy(gameObject);
     }
 }
