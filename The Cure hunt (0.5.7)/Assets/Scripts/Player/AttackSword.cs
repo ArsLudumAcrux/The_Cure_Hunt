@@ -7,9 +7,10 @@ public class AttackSword : MonoBehaviour {
     public Sword sword;
     public Statistics stats;
     public float critico;
-    ExpBar expBar; 
+    //ExpBar expBar;
 
-   void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Slime"))
         {
@@ -31,8 +32,9 @@ public class AttackSword : MonoBehaviour {
                 if (Slime.Life_Slime <= 0)
                 {
                     Slime.morreu = true;
+                    ExpBar expBar = collision.GetComponent<ExpBar>();
                     drop.DroparMoeda();
-                    expBar.Experiencia(Slime.xpMin,Slime.xpMax);
+                    expBar.Experiencia();
                     GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;
