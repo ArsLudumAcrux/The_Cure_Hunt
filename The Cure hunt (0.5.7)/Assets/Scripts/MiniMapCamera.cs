@@ -56,7 +56,7 @@ public class MiniMapCamera : MonoBehaviour
 
         if (MapaAtual == ("Bosque"))
         {
-            print(MapaAtual);
+            //print(MapaAtual);
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin1, xMax1), Mathf.Clamp(target.position.y, yMin1, yMax1), transform.position.z);
         }
         if (MapaAtual == ("Caverna"))

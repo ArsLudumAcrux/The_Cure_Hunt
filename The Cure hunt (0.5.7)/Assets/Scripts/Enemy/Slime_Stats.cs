@@ -35,7 +35,7 @@ public class Slime_Stats : MonoBehaviour {
     }
     void DestroyObject()
     {
-        experiencia.Experiencia(xpMin, xpMax);
+        experiencia.Experiencia();
         Destroy(gameObject);
     }
 }
