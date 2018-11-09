@@ -149,7 +149,7 @@ Vector3 dir = (target - transform.position).normalized;
                 transform.position = initialPosition;
                 /////////////////////////////////////////////  "CATARINA" /////////////////////////////////////////////////////////////
                 // Y cambiamos la animación de nuevo a Idle
-                anim.SetBool("Walking", false);
+                //anim.SetBool("Walking", false);
             }
             /////////////////////////////////////////////  "CATARINA" /////////////////////////////////////////////////////////////
             // Y un debug optativo con una línea hasta el target

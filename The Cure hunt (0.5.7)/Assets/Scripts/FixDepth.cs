@@ -14,9 +14,14 @@ public class FixDepth : MonoBehaviour {
         //spr.sortingLayerName = "Player";
        //spr.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
 
-        meshRender = GetComponent<MeshRenderer>();
-        meshRender.sortingLayerName = "Player";
-        meshRender.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
+        
+        if(transform.name != "Player")
+        {
+            meshRender = GetComponent<MeshRenderer>();
+            meshRender.sortingLayerName = "Player";
+            meshRender.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
+        }
+        
     }
 
 	void Update () {

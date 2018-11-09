@@ -14,6 +14,7 @@ public class HealthBar : MonoBehaviour
 
     // Use this for initialization
     void Start () {
+        stats = FindObjectOfType<Statistics>();
         HP_Bar = GetComponent<Image>();
 
 
