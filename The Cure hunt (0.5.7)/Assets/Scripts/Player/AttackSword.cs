@@ -34,7 +34,7 @@ public class AttackSword : MonoBehaviour {
                     Slime.morreu = true;
                     ExpBar expBar = collision.GetComponent<ExpBar>();
                     drop.DroparMoeda();
-                    expBar.Experiencia();
+                    //expBar.Experiencia();
                     GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;

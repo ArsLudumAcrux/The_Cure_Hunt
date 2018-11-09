@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour {
 	Rigidbody2D rb2d;
 	Vector2 Mov;  // Agora é visível nos métodos
     Sword sword;
+    Magic magic;
   
 
 	public CircleCollider2D attackCollider;
@@ -28,6 +29,7 @@ public class PlayerScript : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
         sword = GetComponent<Sword>();
+        magic = GameObject.FindGameObjectWithTag("Magic").GetComponent<Magic>();
 
 		/*	Fazemos com que a variável "attackCollider" receba o Componente CircleCollider pertencente ao GameObject
 			 do "primeiro filho" do GameObject a qual esse script está inserido (que no caso é o Player).
@@ -144,7 +146,20 @@ public class PlayerScript : MonoBehaviour {
 
 	}
 
+    void Magia()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && magic.MagiaAtual != "")
+        {
+            if (magic.MagiaAtual == "Fogo")
+            {
 
+            }
+            else if (magic.MagiaAtual == "Floresta")
+            {
+
+            }
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "TriggerBosque")

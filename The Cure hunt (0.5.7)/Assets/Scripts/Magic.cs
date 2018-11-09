@@ -15,6 +15,14 @@ public class Magic : MonoBehaviour {
     [Header("Gemas Bloqueadas")]
     public Button[] GemasBloqueadas;
     public Text[] Text;
+    [Header("Magia Atual")]
+    public string MagiaAtual;
+    [Header("Magia HUD")]
+    public Sprite BordaFogo;
+    public Sprite BordaFloresta;
+    public Sprite BordaMagia;
+    public Image BordaAtual;
+
 
     // Use this for initialization
 
@@ -35,6 +43,9 @@ public class Magic : MonoBehaviour {
         {
             Text[i].gameObject.SetActive(false);
         }
+
+        BordaAtual.gameObject.SetActive(true);
+        
     }
     public void Update()
     {
@@ -82,18 +93,29 @@ public class Magic : MonoBehaviour {
     //        Text[i].gameObject.SetActive(false);
     //    }
     //}
-    public void MagiaAtual(string name)
+    public void Gema(string name)
     {
-        if(name == "Floresta")
+        if (name == "Floresta")
         {
             GemaAtual.GetComponent<Image>().sprite = GemaVerde;
-            print("GEMA VERDE " + name);
+            MagiaAtual = "Floresta";
+            BordaAtual.GetComponent<Image>().sprite = BordaFloresta;
+            print(MagiaAtual);
         }
-        if (name == "Fogo")
+        else if (name == "Fogo")
         {
             GemaAtual.GetComponent<Image>().sprite = GemaVerm;
+            MagiaAtual = "Fogo";
+            BordaAtual.GetComponent<Image>().sprite = BordaFogo;
+            print(MagiaAtual);
+        }
+        else
+        {
+            MagiaAtual = null;
+            BordaAtual.GetComponent<Image>().sprite = BordaMagia;
         }
     }
+    
     IEnumerator TimeScaleGema()
     {
         yield return new WaitForSecondsRealtime(2f);

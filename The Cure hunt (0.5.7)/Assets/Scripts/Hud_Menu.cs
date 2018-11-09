@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +24,7 @@ public class Hud_Menu : MonoBehaviour
     public Image TextArm;
     [Header("Placas")]
     public GameObject[] Placas;
-    public string borracha;
+    public string borrada;
     public string nomeSwrd;
 
 
@@ -77,9 +76,9 @@ public class Hud_Menu : MonoBehaviour
 
     }
 
-    public void BtnSword(string borracha)
+    public void BtnSword(string borrada)
     {
-        borracha = nomeSwrd;
+        borrada = nomeSwrd;
         StartCoroutine(Animacao());
     }
     public void ArmaEquipada()
