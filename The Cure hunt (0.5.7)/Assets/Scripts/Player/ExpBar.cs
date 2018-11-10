@@ -52,9 +52,9 @@ public class ExpBar : MonoBehaviour {
             Debug.Log("Velocidade atual do player : " + playerScript.speed);
         }
     }
-    public void Experiencia()
+    public void Experiencia(int xpMin, int xpMax)
     {
-        int Exp = Random.Range(slime_stats.xpMin, slime_stats.xpMax);
+        int Exp = Random.Range(xpMin, xpMax);
         stat.ExpAtual += Exp;
         //experiencia_img.fillAmount = stat.ExpAtual / stat.ExpAtual;
         Debug.Log("Experiencia Ganha:" + Exp);

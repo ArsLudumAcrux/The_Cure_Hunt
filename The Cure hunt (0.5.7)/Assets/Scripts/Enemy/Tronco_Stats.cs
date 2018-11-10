@@ -18,7 +18,7 @@ public class Tronco_Stats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        anim.SetBool("Morrer", morreu);
+        //anim.SetBool("Morrer", morreu);
         if (morreu)
         {
             velocidade(0);
