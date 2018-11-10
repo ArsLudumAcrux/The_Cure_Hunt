@@ -100,14 +100,12 @@ public class Magic : MonoBehaviour {
             GemaAtual.GetComponent<Image>().sprite = GemaVerde;
             MagiaAtual = "Floresta";
             BordaAtual.GetComponent<Image>().sprite = BordaFloresta;
-            print(MagiaAtual);
         }
         else if (name == "Fogo")
         {
             GemaAtual.GetComponent<Image>().sprite = GemaVerm;
             MagiaAtual = "Fogo";
             BordaAtual.GetComponent<Image>().sprite = BordaFogo;
-            print(MagiaAtual);
         }
         else
         {

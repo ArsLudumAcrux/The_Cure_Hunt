@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour {
 	Vector2 Mov;  // Agora é visível nos métodos
     Sword sword;
     Magic magic;
+    CoolDown cooldown;
   
 
 	public CircleCollider2D attackCollider;
@@ -29,13 +30,14 @@ public class PlayerScript : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
         sword = GetComponent<Sword>();
-        magic = GameObject.FindGameObjectWithTag("Magic").GetComponent<Magic>();
+        magic = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Magic>();
+        cooldown = GameObject.FindGameObjectWithTag("CoolDown").GetComponent<CoolDown>();
 
-		/*	Fazemos com que a variável "attackCollider" receba o Componente CircleCollider pertencente ao GameObject
+        /*	Fazemos com que a variável "attackCollider" receba o Componente CircleCollider pertencente ao GameObject
 			 do "primeiro filho" do GameObject a qual esse script está inserido (que no caso é o Player).
 			 (Nós declaramos o primeiro filho pela linha de código "GetChild (0)". Em inglês essa linha se traduziria
-			 para algo como "Pegue o filho 0", sendo que "filho 0" nesse caso refere-se ao primeiro filho do Objeto Player)*/ 
-		attackCollider = transform.GetChild (0).GetComponent<CircleCollider2D>();
+			 para algo como "Pegue o filho 0", sendo que "filho 0" nesse caso refere-se ao primeiro filho do Objeto Player)*/
+        attackCollider = transform.GetChild (0).GetComponent<CircleCollider2D>();
 
         //shadow = transform.GetChild(3).GetComponent<SpriteRenderer>();
         //shadow.color =new Color(10, 10, 10, 103);
@@ -143,22 +145,27 @@ public class PlayerScript : MonoBehaviour {
             
 
         }
-
-	}
-
-    void Magia()
-    {
-        if (Input.GetKeyDown(KeyCode.R) && magic.MagiaAtual != "")
+        if (Input.GetKeyDown(KeyCode.R) && magic.MagiaAtual != "" && cooldown.PodeUsar == true)
         {
             if (magic.MagiaAtual == "Fogo")
             {
 
+                cooldown.CoolDownMagia();
+                print("a");
+
             }
             else if (magic.MagiaAtual == "Floresta")
             {
-
+                cooldown.CoolDownMagia();
+                print("b");
             }
         }
+
+    }
+
+    void Magia()
+    {
+     
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

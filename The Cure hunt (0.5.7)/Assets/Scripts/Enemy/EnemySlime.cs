@@ -232,11 +232,9 @@ public class EnemySlime : MonoBehaviour {
     {
         anim.SetTrigger("Hit");
         speed = 0;
-        Debug.Log("Life Player: "+HB.HP_Current);
         HB.HP_Current -= damage;
         stopAttack = true;
 
-        print("COMEÇOU A ATACAR O ARROMBADO");
         yield return new WaitForSeconds(2f);
         speed = 1;
         stopAttack = false;

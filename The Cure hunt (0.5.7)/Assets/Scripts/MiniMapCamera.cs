@@ -32,7 +32,7 @@ public class MiniMapCamera : MonoBehaviour
         //Forçar a resolução da tela em um valor fixo de 1280x720 e em tela cheia.
         Screen.SetResolution(300, 300, true);
         MapaAtual = GameObject.FindObjectOfType<PlayerScript>().InitialMap.name;
-        print(MapaAtual);
+
     }
 
     private void FixedUpdate()
@@ -56,17 +56,14 @@ public class MiniMapCamera : MonoBehaviour
 
         if (MapaAtual == ("Bosque"))
         {
-            //print(MapaAtual);
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin1, xMax1), Mathf.Clamp(target.position.y, yMin1, yMax1), transform.position.z);
         }
         if (MapaAtual == ("Caverna"))
         {
-            print(MapaAtual);
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin2, xMax2), Mathf.Clamp(target.position.y, yMin2, yMax2), transform.position.z);
         }
         if (MapaAtual == ("Bosque2"))
         {
-            print(MapaAtual);
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin3, xMax3), Mathf.Clamp(target.position.y, yMin3, yMax3), transform.position.z);
         }
     }

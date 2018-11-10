@@ -24,6 +24,7 @@ TagManager:
   - Tronco
   - Coin
   - ExpBar
+  - CoolDown
   layers:
   - Default
   - TransparentFX

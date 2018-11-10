@@ -19,7 +19,6 @@ public class AreaScript : MonoBehaviour {
 
 	// Update is called once per frame
 	public IEnumerator ShowArea (string name) {
-        print("Entrou no mapa: " + name);
 		anim.Play ("NomeMapa");
         textoArea.text = name;
         ShadowArea.text = name;

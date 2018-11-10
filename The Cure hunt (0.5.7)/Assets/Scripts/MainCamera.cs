@@ -34,7 +34,7 @@ public class MainCamera : MonoBehaviour {
         //Forçar a resolução da tela em um valor fixo de 1280x720 e em tela cheia.
         Screen.SetResolution(1280, 720, true);
         MapaAtual = GameObject.FindObjectOfType<PlayerScript>().InitialMap.name;
-        print(MapaAtual);
+        
     }
 
     private void FixedUpdate()

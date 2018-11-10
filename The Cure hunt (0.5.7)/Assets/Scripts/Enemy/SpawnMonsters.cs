@@ -44,7 +44,6 @@ public class SpawnMonsters : MonoBehaviour {
     {
         SpawnMonster();
         yield return true;
-        print(maxMonstros + " monstros Spawnados");
     }
 
 }
