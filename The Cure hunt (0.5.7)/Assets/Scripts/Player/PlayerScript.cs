@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class PlayerScript : MonoBehaviour {
-    
 
-    public float speed ;
+    [Header("Poções")]
+    public List<PotionScriptableObj> potions;
+
+    [Space(25)]
+    public float speed;
 
 	Animator anim;
 	Rigidbody2D rb2d;
@@ -62,6 +65,12 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.P) && potions[0] != null)
+        {
+            UsePotion(potions[0]);
+        }
+
 
 		// Detectando movimento em vector 2D
 		Mov = new Vector2(
@@ -145,20 +154,22 @@ public class PlayerScript : MonoBehaviour {
             
 
         }
-        if (Input.GetKeyDown(KeyCode.R) && magic.MagiaAtual != "" && cooldown.PodeUsar == true)
+        if (Input.GetKeyDown(KeyCode.R) && magic.MagiaAtual != "")
         {
-            if (magic.MagiaAtual == "Fogo")
-            {
+            //   if (magic.MagiaAtual == "Fogo")
+            //   {
+            //
+            //       cooldown.CoolDownMagia();
+            //       print("a");
+            //
+            //   }
+            //   else if (magic.MagiaAtual == "Floresta")
+            //   {
+            //       cooldown.CoolDownMagia();
+            //       print("b");
+            //   }
 
-                cooldown.CoolDownMagia();
-                print("a");
-
-            }
-            else if (magic.MagiaAtual == "Floresta")
-            {
-                cooldown.CoolDownMagia();
-                print("b");
-            }
+            cooldown.CoolDownMagia(magic.MagiaAtual);
         }
 
     }
@@ -207,6 +218,36 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    public void AddPotion(PotionScriptableObj[] newPotions)
+    {
+        for (int i = 0; i < newPotions.Length; i++)
+        {
+            potions.Add(newPotions[i]);
+        }
+    }
+
+    public void UsePotion (PotionScriptableObj potionUsed)
+    {
+        for (int i = 0; i < potions.Count; i++)
+        {
+            if (potionUsed == potions[i])
+            {
+                if (!(potionUsed.potionFunction == 0 && GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current == GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().stats.HP_Max)) {
+
+                    GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current += potionUsed.healthGain;
+
+
+
+                    potions.RemoveAt(i);
+
+                } else
+                {
+                    print("Você não precisa disso agora");
+                }
+                break;
+            }
+        }
+    }
 
     void FixedUpdate () {
 

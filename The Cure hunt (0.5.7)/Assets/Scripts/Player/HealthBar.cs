@@ -23,6 +23,12 @@ public class HealthBar : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (HP_Current > stats.HP_Max)
+        {
+            HP_Current = stats.HP_Max;
+        }
+
         HP_Bar.fillAmount = HP_Current / stats.HP_Max;
    
         //if (HP_Current == 0)

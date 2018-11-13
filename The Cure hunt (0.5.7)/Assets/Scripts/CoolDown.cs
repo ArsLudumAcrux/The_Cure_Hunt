@@ -8,8 +8,9 @@ public class CoolDown : MonoBehaviour {
 
     public Image cooldown;
     public float TempoCoolDown;
+    public float runtimeCoolDown;
     public bool PodeUsar;
-
+    public float fillValueTest;
 
     PlayerScript playerscript;
 
@@ -24,22 +25,45 @@ public class CoolDown : MonoBehaviour {
 	}
     public void Update()
     {
-        if (cooldown.fillAmount <= 0.0f)
+       // if (cooldown.fillAmount <= 0.0f)
+       // {
+       //     PodeUsar = true;
+       // }
+       // else
+       //     PodeUsar = false;
+
+        if (runtimeCoolDown <= Time.time)
         {
             PodeUsar = true;
         }
-        else
-            PodeUsar = false;
+
+        fillValueTest = Mathf.Clamp(runtimeCoolDown - Time.time, 0, TempoCoolDown);
+
+        cooldown.fillAmount = fillValueTest / TempoCoolDown;
+
+
     }
     // Update is called once per frame
-    public void CoolDownMagia()
+    public void CoolDownMagia(string magiaAtual)
     {
+        if (magiaAtual == "Fogo")
+        {
+            //lógica de fogo;
 
-        cooldown.fillAmount = 1.0f;
+        } else if (magiaAtual == "Floresta")
+        {
+            //logica de mato
+
+        }
+
+        runtimeCoolDown = TempoCoolDown + Time.time;
         PodeUsar = false;
-        TempoCoolDown -= Time.deltaTime;
-        cooldown.fillAmount = TempoCoolDown; 
-        print("c");
+
+       //     cooldown.fillAmount = 1.0f;
+       // PodeUsar = false;
+       // TempoCoolDown -= Time.deltaTime;
+       // cooldown.fillAmount = TempoCoolDown; 
+       // print("c");
 
     }
 }
