@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Hud_Menu : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class Hud_Menu : MonoBehaviour
     public string nomeSwrd;
 
 
+    [Header("Inventario")]
+    public GameObject uiprefab;
+    public RectTransform ScrollContent;
+    public List<UIPotionPrefs> ListaItens;
+    public PlayerScript player; 
+
+
     Sword sword;
 
     
@@ -35,6 +43,7 @@ public class Hud_Menu : MonoBehaviour
     void Start()
     {
         sword = GameObject.FindGameObjectWithTag("Player").GetComponent<Sword>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
 
         anim = GetComponent<Animator>();
         PanelMenu.SetActive(false);
@@ -80,6 +89,28 @@ public class Hud_Menu : MonoBehaviour
 
     }
 
+    public void UpdateListItens()
+    {
+        ClearItemList();
+        for (int i = 0; i < player.potions.Count; i++)
+        {
+            GameObject tempItem = Instantiate(uiprefab, ScrollContent);
+            tempItem.GetComponent<UIPotionPrefs>().SetupPotion(player.potions[i]);
+            ListaItens.Add(tempItem.GetComponent<UIPotionPrefs>());
+            tempItem.GetComponent<UIPotionPrefs>().player = player;
+            tempItem.GetComponent<UIPotionPrefs>().hudmenu = this;
+        }
+    }
+    public void ClearItemList()
+    {
+        for (int i = 0; i < ListaItens.Count; i++)
+        {
+            Destroy(ListaItens[i].gameObject);   
+        }
+        ListaItens.Clear();
+    }
+
+
     public void BtnSword(string borrada)
     {
         borrada = nomeSwrd;
@@ -113,6 +144,8 @@ public class Hud_Menu : MonoBehaviour
             PanelEspadas.SetActive(true);
             PanelInv.SetActive(false);
             PanelMagia.SetActive(false);
+
+            ClearItemList();
         }
         if (name == "Config")
         {
@@ -125,6 +158,8 @@ public class Hud_Menu : MonoBehaviour
             PanelEspadas.SetActive(false);
             PanelInv.SetActive(false);
             PanelMagia.SetActive(false);
+
+            ClearItemList();
         }
         if (name == "Inv")
         {
@@ -137,6 +172,9 @@ public class Hud_Menu : MonoBehaviour
             PanelEspadas.SetActive(false);
             PanelInv.SetActive(true);
             PanelMagia.SetActive(false);
+
+            UpdateListItens();
+
         }
         if (name == "Magia")
         {
@@ -149,6 +187,8 @@ public class Hud_Menu : MonoBehaviour
             PanelEspadas.SetActive(false);
             PanelInv.SetActive(false);
             PanelMagia.SetActive(true);
+
+            ClearItemList();
         }
     } 
     void AbrirFecharMenu()

@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Assertions;
 
 public class PlayerScript : MonoBehaviour {
 
     [Header("Poções")]
     public List<PotionScriptableObj> potions;
+    public float ShieldPotionMult;
+    public float LuckPotionMult;
+    public float TimePotionMult;
+    
+    public bool UsingPotion;
+    public bool Debuff;
+    public Image expfillamount;
 
     [Space(25)]
     public float speed;
@@ -17,9 +25,13 @@ public class PlayerScript : MonoBehaviour {
     Sword sword;
     Magic magic;
     CoolDown cooldown;
-  
 
-	public CircleCollider2D attackCollider;
+ 
+    public float RunTimePotion;
+    public PotionScriptableObj CurrentPotion;
+
+
+    public CircleCollider2D attackCollider;
 
     public SpriteRenderer shadow;
 
@@ -66,14 +78,17 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.P) && potions[0] != null)
+        if (RunTimePotion <= Time.time && UsingPotion == true)
         {
-            UsePotion(potions[0]);
+            PotionShieldEnd();
+
         }
+        float fillValueTest = Mathf.Clamp(RunTimePotion - Time.time, 0, CurrentPotion.Duration);
 
+        expfillamount.fillAmount = fillValueTest / CurrentPotion.Duration ;
 
-		// Detectando movimento em vector 2D
-		Mov = new Vector2(
+        // Detectando movimento em vector 2D
+        Mov = new Vector2(
 			Input.GetAxisRaw("Horizontal"),
 			Input.GetAxisRaw("Vertical")
 		);
@@ -236,21 +251,100 @@ public class PlayerScript : MonoBehaviour {
 
                     GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current += potionUsed.healthGain;
 
+                    potions.RemoveAt(i);
 
+                } else if(potionUsed.potionFunction != 0 && !UsingPotion)
+                {
+                    CurrentPotion = potionUsed;
+                    if (potionUsed.potionFunction == 1 && !UsingPotion)
+                    {
+                        UsePotionShield();
+                    }
+                    else if (potionUsed.potionFunction == 2 && !UsingPotion && Debuff == true)
+                    {
+                        UseRecoveryPotion();
+                    }
+                    else if (potionUsed.potionFunction == 3 && !UsingPotion)
+                    {
+                        UseTimePotion();
+                    }
+                    else if (potionUsed.potionFunction == 4 && !UsingPotion)
+                    {
+                        UseLuckPotion();
+                    }
 
                     potions.RemoveAt(i);
 
-                } else
+
+                }
+                else
                 {
                     print("Você não precisa disso agora");
                 }
+
                 break;
             }
         }
     }
+    public void UsePotionShield()
+    {
+        RunTimePotion = CurrentPotion.Duration + Time.time;
+        ShieldPotionMult = 0.5f;
+        UsingPotion = true;
+        //Invoke("PotionShieldEnd", 60f);
+    }
+    public void PotionShieldEnd()
+    {
+        ShieldPotionMult = 1f;
+        UsingPotion = false;
+    }
+    public void UseLuckPotion()
+    {
+        int random = Random.Range(0, 2);
+        if (random == 0)
+        {
+            LuckPotionMult = 1.5f;
+        }
+        else
+        {
+            LuckPotionMult = 0.5f;
+            Debuff = true;
+        }
+
+        RunTimePotion = CurrentPotion.Duration + Time.time;
+        UsingPotion = true;
+    }
+    public void PotionLuckEnd()
+    {
+        LuckPotionMult = 1;
+        Debuff = false;
+        UsingPotion = false;
+    }
+    public void UseTimePotion()
+    {
+        TimePotionMult = 0.7f;
+        RunTimePotion = CurrentPotion.Duration + Time.time;
+        UsingPotion = true;
+    }
+    public void TimePotionEnd()
+    {
+        TimePotionMult = 1;
+        UsingPotion = false;
+    }
+    public void UseRecoveryPotion()
+    {
+        RecoveryPotionEnd();
+    }
+    public void RecoveryPotionEnd()
+    {
+        PotionLuckEnd();
+        UsingPotion = false;
+    }
+
+
 
     void FixedUpdate () {
 
-		rb2d.MovePosition(rb2d.position + Mov * speed * Time.deltaTime);
+		rb2d.MovePosition(rb2d.position + Mov * (speed * LuckPotionMult) * Time.deltaTime);
 	}
 }

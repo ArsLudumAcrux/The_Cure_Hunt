@@ -56,7 +56,7 @@ public class CoolDown : MonoBehaviour {
 
         }
 
-        runtimeCoolDown = TempoCoolDown + Time.time;
+        runtimeCoolDown = (TempoCoolDown * playerscript.TimePotionMult ) + Time.time;
         PodeUsar = false;
 
        //     cooldown.fillAmount = 1.0f;

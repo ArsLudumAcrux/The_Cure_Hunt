@@ -11,6 +11,7 @@ public class EnemySlime : MonoBehaviour {
     public float speed;
     public float damage;
     public Slime_Stats stats;
+    
 
     // Variavel para guardar o jogador
     public GameObject ObjectPlayer;
@@ -232,7 +233,9 @@ public class EnemySlime : MonoBehaviour {
     {
         anim.SetTrigger("Hit");
         speed = 0;
-        HB.HP_Current -= damage;
+        PlayerScript player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        HB.HP_Current -= Mathf.RoundToInt(damage * player.ShieldPotionMult);
+        print(Mathf.RoundToInt(damage * player.ShieldPotionMult));
         stopAttack = true;
 
         yield return new WaitForSeconds(2f);

@@ -16,3 +16,4 @@ MonoBehaviour:
   potionFunction: 0
   potionName: "Po\xE7\xE3o de cura concentrada"
   artwork: {fileID: 21300000, guid: 0d739a6ec4f9ace4abdaa099ab658215, type: 3}
+  Duration: 1

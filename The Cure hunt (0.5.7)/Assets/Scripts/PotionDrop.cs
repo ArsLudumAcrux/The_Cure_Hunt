@@ -26,6 +26,7 @@ public class PotionDrop : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerScript>().AddPotion(potionInfo);
+            GameObject.FindGameObjectWithTag("Area").GetComponent<Hud_Menu>().UpdateListItens();
             Destroy(gameObject);
         }
     }

@@ -18,7 +18,8 @@ public class Projetil : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            HB.HP_Current -= Damage;
+            PlayerScript player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+            HB.HP_Current -= Mathf.RoundToInt(Damage * player.ShieldPotionMult);
             DestroyProjetil();
         }
 
