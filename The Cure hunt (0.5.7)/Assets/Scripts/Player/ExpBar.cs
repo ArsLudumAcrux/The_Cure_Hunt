@@ -8,11 +8,18 @@ public class ExpBar : MonoBehaviour {
     public Statistics stat;//variavel referente ao script Statistics
     public Image experiencia_img;
     public float expCur;
+    public int danoplayer;
     Slime_Stats slime_stats;
     PlayerScript playerScript;
 
+    [Header("Text Status Atualizados")]
+    public Text danoTxt;
+    public Text speedTxt;
+
     public void Start()
     {
+        danoTxt.gameObject.SetActive(false);
+        speedTxt.gameObject.SetActive(false);
         //experiencia_img.fillAmount = 0;
         stat = FindObjectOfType<Statistics>();//pegando o script Statistics
         playerScript = FindObjectOfType<PlayerScript>();
@@ -34,6 +41,11 @@ public class ExpBar : MonoBehaviour {
             stat.HP_Max = Mathf.Round(stat.HP_Max * 1.05f);//Vida maxima aumenta 5% a cada nivel do player
 
             stat.strongh = Mathf.Round(stat.strongh * 1.02f);
+
+            danoplayer += 2;
+
+            danoTxt.gameObject.SetActive(true);
+            Invoke("StatusAtualizados", 2f);
 
            // playerScript.speed= Mathf.Round(stat.strongh * 1.01f);
 
@@ -59,5 +71,9 @@ public class ExpBar : MonoBehaviour {
         int Exp = Random.Range(xpMin, xpMax);
         stat.ExpAtual += Exp;
         //experiencia_img.fillAmount = stat.ExpAtual / stat.ExpAtual;
+    }
+    public void StatusAtualizados()
+    {
+        danoTxt.gameObject.SetActive(false);
     }
 }

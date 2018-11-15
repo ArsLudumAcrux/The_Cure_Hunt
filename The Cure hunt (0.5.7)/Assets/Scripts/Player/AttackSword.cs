@@ -7,7 +7,15 @@ public class AttackSword : MonoBehaviour {
     public Sword sword;
     public Statistics stats;
     public float critico;
+    public int calculo;
+    ExpBar expbar;
     //ExpBar expBar;
+
+
+    public void Start()
+    {
+        expbar = GameObject.FindGameObjectWithTag("ExpBar").GetComponent<ExpBar>();
+    }
 
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,10 +30,15 @@ public class AttackSword : MonoBehaviour {
 
                 if (critico <= sword.SwordCurrentCriticoChance)
                 {
-                    Slime.Life_Slime -= sword.Sword_CurrentDamage * 2;
+                    calculo = expbar.danoplayer + sword.Sword_CurrentDamage * 2;
+                    Slime.Life_Slime -= calculo;
+
                 }
                 else
-                    Slime.Life_Slime -= sword.Sword_CurrentDamage;
+                {
+                    calculo = expbar.danoplayer + sword.Sword_CurrentDamage;
+                    Slime.Life_Slime -= calculo;
+                }
 
 
                 if (Slime.Life_Slime <= 0)
