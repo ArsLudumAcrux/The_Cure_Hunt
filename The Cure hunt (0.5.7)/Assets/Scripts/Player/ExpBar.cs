@@ -27,13 +27,15 @@ public class ExpBar : MonoBehaviour {
         {        
             stat.Level = stat.Level + 1;//level atual +1
 
+            stat.LevelAtual();
+
             stat.XPToNextLevel = Mathf.Round(stat.XPToNextLevel + (stat.XPToNextLevel * 1.20f));//xp necessario para o proximo nivel aumenta
 
             stat.HP_Max = Mathf.Round(stat.HP_Max * 1.05f);//Vida maxima aumenta 5% a cada nivel do player
 
             stat.strongh = Mathf.Round(stat.strongh * 1.02f);
 
-            playerScript.speed= Mathf.Round(stat.strongh * 1.01f);
+           // playerScript.speed= Mathf.Round(stat.strongh * 1.01f);
 
             //source.PlayOneShot(LevelUp, 1.0f);
 

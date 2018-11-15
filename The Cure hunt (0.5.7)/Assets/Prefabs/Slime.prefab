@@ -189,6 +189,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coin: {fileID: 1603321162689904, guid: 51792b956d4785f4cb2a51b870a07beb, type: 2}
+  PotionsDrop:
+  - {fileID: 1355337669028796, guid: d892080158efefc49a5ce01438364982, type: 2}
+  - {fileID: 1473330656208036, guid: 53f9d377497015c46aabf28345b8beba, type: 2}
+  - {fileID: 1176294386794282, guid: 6a7e36990e16b06488f316a57a623e83, type: 2}
+  - {fileID: 1789808286580532, guid: f546898dd559eb64fbdf8a3250619164, type: 2}
+  - {fileID: 1779194636002954, guid: 8fea8e08955efdf419a4b66775d42ca8, type: 2}
+  - {fileID: 1271236484133926, guid: e6301fbf3c1366d4d90133f3b9aa2579, type: 2}
+  CoinPotion: 0
 --- !u!114 &114723778954946952
 MonoBehaviour:
   m_ObjectHideFlags: 1

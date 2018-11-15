@@ -28,10 +28,14 @@ public class Hud_Menu : MonoBehaviour
     public string nomeSwrd;
 
 
+    Sword sword;
+
     
 
     void Start()
     {
+        sword = GameObject.FindGameObjectWithTag("Player").GetComponent<Sword>();
+
         anim = GetComponent<Animator>();
         PanelMenu.SetActive(false);
         TextArm.gameObject.SetActive(false);
@@ -162,6 +166,11 @@ public class Hud_Menu : MonoBehaviour
         paused = false;
         float blablbla = paused ? 0 : 1;
         Time.timeScale = blablbla;
+
+        for (int i = 0; i < sword.BordaEspada.Length; i++)
+        {
+            sword.BordaEspada[i].gameObject.SetActive(false);
+        }
         //Time.timeScale = 1;
         //Cursor.visible = false;
     }

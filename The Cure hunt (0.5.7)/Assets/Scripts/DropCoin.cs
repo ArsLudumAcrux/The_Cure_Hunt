@@ -29,7 +29,6 @@ public class DropCoin : MonoBehaviour
         {
             DroparPotion();
         }
-        print("Numero: " + CoinPotion);
     }
 
 
@@ -46,28 +45,27 @@ public class DropCoin : MonoBehaviour
     {
         float ChanceDropPotion = Random.Range(0f, 100f);
 
-
-        if (ChanceDropPotion > 0 && ChanceDropPotion <= 5)
+        if (ChanceDropPotion > 0f && ChanceDropPotion <= 5f)
         {
             Instantiate(PotionsDrop[0], transform.position, Quaternion.identity);
         }
-          else if (ChanceDropPotion > 5 && ChanceDropPotion <= 15)
+          else if (ChanceDropPotion > 5f && ChanceDropPotion <= 15f)
         {
             Instantiate(PotionsDrop[1], transform.position, Quaternion.identity);
         }
-        else if (ChanceDropPotion > 15 && ChanceDropPotion <= 27.5f)
+        else if (ChanceDropPotion > 15f && ChanceDropPotion <= 27.5f)
         {
             Instantiate(PotionsDrop[2], transform.position, Quaternion.identity);
         }
-        else if (ChanceDropPotion > 27.5 && ChanceDropPotion <= 40)
+        else if (ChanceDropPotion > 27.5f && ChanceDropPotion <= 40f)
         {
             Instantiate(PotionsDrop[3], transform.position, Quaternion.identity);
         }
-        else if (ChanceDropPotion > 40 && ChanceDropPotion <= 55)
+        else if (ChanceDropPotion > 40f && ChanceDropPotion <= 55f)
         {
             Instantiate(PotionsDrop[4], transform.position, Quaternion.identity);
         }
-        else if (ChanceDropPotion > 55 && ChanceDropPotion <= 100)
+        else if (ChanceDropPotion > 55f && ChanceDropPotion <= 100f)
         {
             Instantiate(PotionsDrop[5], transform.position, Quaternion.identity);
         }

@@ -193,7 +193,7 @@ Vector3 dir = (target - transform.position).normalized;
 
 
 
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(3.2f);
         speed = 1;
         stopAttack = false;
     }

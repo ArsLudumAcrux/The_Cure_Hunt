@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 58401028585422914}
   - component: {fileID: 95630112215813928}
   - component: {fileID: 50750925234226342}
+  - component: {fileID: 114909986693164322}
   m_Layer: 0
   m_Name: TroncoTest
   m_TagString: Tronco
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f6bf2cb2dae874296de5b3deab3435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life_Tronco: 50
+  Life_Tronco: 45
   morreu: 0
   xpMin: 10
   xpMax: 20
@@ -188,12 +189,12 @@ MonoBehaviour:
   BulletEmitor: {fileID: 4605951987946898}
   BulletPrefab: {fileID: 1924509681897198, guid: 1f08eb023dc787e4a934016463e97b7e,
     type: 2}
-  BulletSpeed: 500
+  BulletSpeed: 455
   BulletRotator: {fileID: 4701586741016478}
   visionRadius: 11
   attackRadius: 8
   speed: 1
-  damage: 5
+  damage: 4
   statstronco: {fileID: 114628371768102976}
   ObjectPlayer: {fileID: 0}
   EnemyType: 1
@@ -205,6 +206,26 @@ MonoBehaviour:
   Moeda3: {fileID: 0}
   distance: 0
   stopAttack: 0
+--- !u!114 &114909986693164322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381731133545420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e885860fa1c9c448dad3a6ff12a06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Coin: {fileID: 1603321162689904, guid: 51792b956d4785f4cb2a51b870a07beb, type: 2}
+  PotionsDrop:
+  - {fileID: 1355337669028796, guid: d892080158efefc49a5ce01438364982, type: 2}
+  - {fileID: 1473330656208036, guid: 53f9d377497015c46aabf28345b8beba, type: 2}
+  - {fileID: 1176294386794282, guid: 6a7e36990e16b06488f316a57a623e83, type: 2}
+  - {fileID: 1789808286580532, guid: f546898dd559eb64fbdf8a3250619164, type: 2}
+  - {fileID: 1779194636002954, guid: 8fea8e08955efdf419a4b66775d42ca8, type: 2}
+  - {fileID: 1271236484133926, guid: e6301fbf3c1366d4d90133f3b9aa2579, type: 2}
+  CoinPotion: 0
 --- !u!114 &114934279598304800
 MonoBehaviour:
   m_ObjectHideFlags: 1
