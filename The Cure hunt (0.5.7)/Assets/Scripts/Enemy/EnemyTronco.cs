@@ -192,7 +192,7 @@ Vector3 dir = (target - transform.position).normalized;
         tempBullet.GetComponent<Projetil>().Damage = damage;
 
 
-        print("COMEÇOU A ATACAR O ARROMBADO");
+
         yield return new WaitForSeconds(2.7f);
         speed = 1;
         stopAttack = false;

@@ -57,7 +57,5 @@ public class ExpBar : MonoBehaviour {
         int Exp = Random.Range(xpMin, xpMax);
         stat.ExpAtual += Exp;
         //experiencia_img.fillAmount = stat.ExpAtual / stat.ExpAtual;
-        Debug.Log("Experiencia Ganha:" + Exp);
-        Debug.Log("Experiencia atual:" + stat.ExpAtual);
     }
 }

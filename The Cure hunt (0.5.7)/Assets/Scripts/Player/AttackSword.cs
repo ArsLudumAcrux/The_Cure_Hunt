@@ -23,7 +23,6 @@ public class AttackSword : MonoBehaviour {
                 if (critico <= sword.SwordCurrentCriticoChance)
                 {
                     Slime.Life_Slime -= sword.Sword_CurrentDamage * 2;
-                    print("critico" + sword.Sword_CurrentDamage);
                 }
                 else
                     Slime.Life_Slime -= sword.Sword_CurrentDamage;
@@ -39,7 +38,6 @@ public class AttackSword : MonoBehaviour {
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;
                     gamemanager.monstrosMortos3++;
-                    print("Matou" + gamemanager.monstrosMortos + "montros");
 
                 }
                 else
@@ -60,7 +58,6 @@ public class AttackSword : MonoBehaviour {
                 if (critico <= sword.SwordCurrentCriticoChance)
                 {
                     Tronco.Life_Tronco -= sword.Sword_CurrentDamage * 2;
-                    print("critico" + sword.Sword_CurrentDamage);
                 }
                 else
                     Tronco.Life_Tronco -= sword.Sword_CurrentDamage;
@@ -75,7 +72,6 @@ public class AttackSword : MonoBehaviour {
                     gamemanager.monstrosMortos++;
                     gamemanager.monstrosMortos2++;
                     gamemanager.monstrosMortos3++;
-                    print("Matou" + gamemanager.monstrosMortos + "montros");
 
                 }
                 else

@@ -18,7 +18,6 @@ public class Projetil : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(HB.HP_Current);
             HB.HP_Current -= Damage;
             DestroyProjetil();
         }

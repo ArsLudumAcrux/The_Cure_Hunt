@@ -20,8 +20,8 @@ public class DropCoin : MonoBehaviour
 
     public void ChanceCoinPotion()
     {
-        CoinPotion = Random.Range(0,2);
-        if(CoinPotion == 0)
+        CoinPotion = Random.Range(0,5);
+        if(CoinPotion <=3)
         {
             DroparMoeda();
         }
@@ -29,13 +29,13 @@ public class DropCoin : MonoBehaviour
         {
             DroparPotion();
         }
+        print("Numero: " + CoinPotion);
     }
 
 
     public void DroparMoeda()
     {
         int Drop = Random.Range(1, 5);
-        print("Drop: " + Drop);
         if (Drop >= 0 && Drop <= 3)
         {
             Instantiate(Coin, transform.position, transform.rotation);
