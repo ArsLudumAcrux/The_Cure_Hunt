@@ -88,10 +88,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  waypoints3: []
+  waypoints3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   monstros:
   - {fileID: 4987912776092122, guid: 43622a6f56b853945b0e8a4d7e709323, type: 2}
-  - {fileID: 4482845959678886, guid: a981f127d329db44d96344ceb0ec99b9, type: 2}
+  - {fileID: 4397559308861968, guid: 8d2b8144842e11a4a983d500fc8d6522, type: 2}
   maxMonstros: 15
   maxMonstros2: 20
   maxMonstros3: 25

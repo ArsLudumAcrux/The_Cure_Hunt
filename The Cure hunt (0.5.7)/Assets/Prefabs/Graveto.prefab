@@ -9,34 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1924509681897198}
+  m_RootGameObject: {fileID: 1448726879860730}
   m_IsPrefabAsset: 1
---- !u!1 &1924509681897198
+--- !u!1 &1448726879860730
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4004203042559832}
-  - component: {fileID: 212035758612910546}
-  - component: {fileID: 50614249201361658}
-  - component: {fileID: 114350827918967646}
-  - component: {fileID: 58551599861679150}
-  - component: {fileID: 96051328336960754}
+  - component: {fileID: 4251305938299468}
+  - component: {fileID: 212437826005570952}
+  - component: {fileID: 50255573209463316}
+  - component: {fileID: 114098527200192200}
+  - component: {fileID: 58056076463507234}
+  - component: {fileID: 96542900125261754}
   m_Layer: 0
-  m_Name: "Sola do p\xE9 para o minimapa 3 (Particulamente eu achei o melhor =D)"
+  m_Name: Graveto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4004203042559832
+--- !u!4 &4251305938299468
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.84, y: -84.993, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
@@ -44,13 +44,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50614249201361658
+--- !u!50 &50255573209463316
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -64,12 +64,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58551599861679150
+--- !u!58 &58056076463507234
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -79,13 +79,13 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
---- !u!96 &96051328336960754
+--- !u!96 &96542900125261754
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -145,8 +145,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.745283, g: 0.3043756, b: 0, a: 1}
+      key1: {r: 0.9716981, g: 0.6447753, b: 0.41709682, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -161,7 +161,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 32575
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -180,12 +180,12 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &114350827918967646
+--- !u!114 &114098527200192200
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f59355b823e00d49aa3bc194aa20af2, type: 3}
@@ -193,12 +193,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 2
   HB: {fileID: 0}
---- !u!212 &212035758612910546
+--- !u!212 &212437826005570952
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924509681897198}
+  m_GameObject: {fileID: 1448726879860730}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -228,7 +228,7 @@ SpriteRenderer:
   m_SortingLayerID: 16464409
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8c3ac0c36e02744c9f35ed38ce6d0a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3110f7f6e9c6dc74dae4cbcc31f663a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
