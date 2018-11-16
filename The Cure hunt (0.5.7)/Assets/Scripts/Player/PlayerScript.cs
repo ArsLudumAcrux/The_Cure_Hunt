@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour {
 
  
     public float RunTimePotion;
+    public float fillValueTest;
     public PotionScriptableObj CurrentPotion;
 
 
@@ -47,6 +48,14 @@ public class PlayerScript : MonoBehaviour {
         sword = GetComponent<Sword>();
         magic = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Magic>();
         cooldown = GameObject.FindGameObjectWithTag("CoolDown").GetComponent<CoolDown>();
+
+
+        ShieldPotionMult = 1;
+        TimePotionMult = 1;
+        LuckPotionMult = 1;
+
+
+
 
         /*	Fazemos com que a variável "attackCollider" receba o Componente CircleCollider pertencente ao GameObject
 			 do "primeiro filho" do GameObject a qual esse script está inserido (que no caso é o Player).
@@ -83,9 +92,19 @@ public class PlayerScript : MonoBehaviour {
             PotionShieldEnd();
 
         }
-        float fillValueTest = Mathf.Clamp(RunTimePotion - Time.time, 0, CurrentPotion.Duration);
 
-        expfillamount.fillAmount = fillValueTest / CurrentPotion.Duration ;
+        if (UsingPotion == true)
+        {
+            fillValueTest = Mathf.Clamp(RunTimePotion - Time.time, 0, CurrentPotion.Duration);
+            expfillamount.fillAmount = fillValueTest / CurrentPotion.Duration;
+        }
+           
+            
+        
+
+        
+
+        
 
         // Detectando movimento em vector 2D
         Mov = new Vector2(
