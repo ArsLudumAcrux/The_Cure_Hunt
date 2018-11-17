@@ -12,12 +12,18 @@ public class MainCamera : MonoBehaviour {
     [SerializeField]
     [Header("BOSQUE")]
     public float xMin1, xMax1, yMin1, yMax1;
+    [Space(10)]
     [Header("CAVERNA")]
     public float xMin2, xMax2, yMin2, yMax2;
+    [Space(10)]
     [Header("BOSQUE 2")]
     public float xMin3, xMax3, yMin3, yMax3;
+    [Space(10)]
+    [Header("Sala Chefe")]
+    public float xMin4, xMax4, yMin4, yMax4;
+    [Space(10)]
 
-    public GameObject Bosque, Caverna, Bosque2;
+    public GameObject Bosque, Caverna, Bosque2, Chefe;
 
     public string MapaAtual;
 
@@ -112,6 +118,11 @@ public class MainCamera : MonoBehaviour {
         {
             
             transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin3, xMax3), Mathf.Clamp(target.position.y, yMin3, yMax3), transform.position.z);
+        }
+        if (MapaAtual == ("Chefe"))
+        {
+
+            transform.position = new Vector3(Mathf.Clamp(target.position.x, xMin4, xMax4), Mathf.Clamp(target.position.y, yMin4, yMax4), transform.position.z);
         }
     }
 

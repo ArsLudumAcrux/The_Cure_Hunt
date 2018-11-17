@@ -21,9 +21,8 @@ GameObject:
   - component: {fileID: 4897930532949102}
   - component: {fileID: 20451100907556556}
   - component: {fileID: 124922068708114176}
-  - component: {fileID: 81170476940238906}
   - component: {fileID: 114938556208157854}
-  - component: {fileID: 114986056801033088}
+  - component: {fileID: 114662965762916250}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -38,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256236625572226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.9, y: -83.4, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -13.98, y: 156.52, z: -1}
+  m_LocalScale: {x: 2.0588, y: 2.0588, z: 2.0588}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +52,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 1, g: 0, b: 0.85513115, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -68,7 +67,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 9.450958
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -84,13 +83,39 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &81170476940238906
-AudioListener:
+--- !u!114 &114662965762916250
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256236625572226}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ee7595dd121a447b8732d5f145ad7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothTime: 2
+  xMin1: -22.89
+  xMax1: 5.09
+  yMin1: -86.26
+  yMax1: -49.54
+  xMin2: -22.28
+  xMax2: 5.67
+  yMin2: -16.26
+  yMax2: 20.45
+  xMin3: -36.32
+  xMax3: 7.64
+  yMin3: 39.75
+  yMax3: 92.45
+  xMin4: -17.92
+  xMax4: -13.98
+  yMin4: 143.86
+  yMax4: 156.52
+  Bosque: {fileID: 0}
+  Caverna: {fileID: 0}
+  Bosque2: {fileID: 0}
+  Chefe: {fileID: 0}
+  MapaAtual: Bosque
 --- !u!114 &114938556208157854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,34 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TexturePixelsPerWorldUnit: 32
---- !u!114 &114986056801033088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256236625572226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ee7595dd121a447b8732d5f145ad7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoothTime: 0.2
-  xMin1: -22.8
-  xMax1: 4.9
-  yMin1: -86.14
-  yMax1: -49.7
-  xMin2: -22.1
-  xMax2: 5.4
-  yMin2: -16.1
-  yMax2: 20.4
-  xMin3: -36.3
-  xMax3: 7.7
-  yMin3: 39.78
-  yMax3: 92.3
-  Bosque: {fileID: 0}
-  Caverna: {fileID: 0}
-  Bosque2: {fileID: 0}
-  MapaAtual: 
 --- !u!124 &124922068708114176
 Behaviour:
   m_ObjectHideFlags: 1

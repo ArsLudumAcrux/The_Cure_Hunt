@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
     Sword sword;
     Magic magic;
     CoolDown cooldown;
+    ScriptBoss boss;
 
  
     public float RunTimePotion;
@@ -220,6 +221,8 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<MainCamera>().MapaAtual = "Caverna";
         if (collision.tag == "TriggerBosque2")
             FindObjectOfType<MainCamera>().MapaAtual = "Bosque2";
+        if (collision.tag == "TriggerChefe")
+            FindObjectOfType<MainCamera>().MapaAtual = "Chefe";
 
         if (collision.tag == "TriggerBosque")
             FindObjectOfType<MiniMapCamera>().MapaAtual = "Bosque";
@@ -227,6 +230,13 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<MiniMapCamera>().MapaAtual = "Caverna";
         if (collision.tag == "TriggerBosque2")
             FindObjectOfType<MiniMapCamera>().MapaAtual = "Bosque2";
+        if (collision.tag == "TriggerChefe")
+            FindObjectOfType<MiniMapCamera>().MapaAtual = "Chefe";
+
+
+        if (collision.tag == "TriggerChefe")
+            boss.StartCoroutine(boss.ComecarCoroutine());
+
     }
 
 
