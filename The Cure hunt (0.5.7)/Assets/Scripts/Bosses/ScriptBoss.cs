@@ -16,6 +16,7 @@ public class ScriptBoss : MonoBehaviour {
 
     PlayerScript player;
     public Transform playerposition;
+  
 
     Animator anim;
 
@@ -54,8 +55,9 @@ public class ScriptBoss : MonoBehaviour {
     public void FindPlayer(Vector3 pos)
     {
         pos = transform.position;
-        playerposition.GetComponent<PlayerScript>().SetPosition(pos);
+        playerposition.GetComponent<PlayerScript>().
     }
+   
 
 
    public IEnumerator ComecarCoroutine()
