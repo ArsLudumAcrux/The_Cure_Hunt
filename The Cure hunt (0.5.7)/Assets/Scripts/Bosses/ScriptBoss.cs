@@ -12,9 +12,10 @@ public class ScriptBoss : MonoBehaviour {
     public Transform Teletransporte;
 
     public int rand;
-    public Transform positionplayer;
+
 
     PlayerScript player;
+    public Transform playerposition;
 
     Animator anim;
 
@@ -24,7 +25,8 @@ public class ScriptBoss : MonoBehaviour {
         idleattack = false;
         //anim.SetBool("Boss_Idle",true);
 
-        player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerScript>();
+        //player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerScript>();
+        playerposition = FindObjectOfType<Transform>();
 
     }
 	
@@ -49,10 +51,10 @@ public class ScriptBoss : MonoBehaviour {
     {
 
     }
-    public void FindPlayer()
+    public void FindPlayer(Vector3 pos)
     {
-        Teletransporte.transform.position = new Vector3(positionplayer.transform.position.x, positionplayer.transform.position.y + 30.0f);
-        print(Teletransporte);
+        pos = transform.position;
+        playerposition.GetComponent<PlayerScript>().SetPosition(pos);
     }
 
 
@@ -61,7 +63,7 @@ public class ScriptBoss : MonoBehaviour {
         yield return new WaitForSeconds(6f);
         if(idleattack == false)
         {
-            FindPlayer();
+           // FindPlayer();
         }else
         {
             IddleBoss();
