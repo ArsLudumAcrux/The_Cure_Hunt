@@ -72,6 +72,9 @@ TagManager:
   - name: Player
     uniqueID: 16464409
     locked: 0
+  - name: CanvasBoss
+    uniqueID: 290815905
+    locked: 0
   - name: CanvasPlayer
     uniqueID: 178153901
     locked: 0

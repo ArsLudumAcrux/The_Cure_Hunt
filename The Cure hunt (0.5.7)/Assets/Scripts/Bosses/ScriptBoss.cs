@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScriptBoss : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class ScriptBoss : MonoBehaviour {
     public bool attacking;
     public int rand;
     public CircleCollider2D attackCollider;
+    public Slider sliderlife;
 
     public Vector3 offset;
 
@@ -29,6 +31,8 @@ public class ScriptBoss : MonoBehaviour {
         attacking = false;
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
+        sliderlife.maxValue = Life;
+        sliderlife.value = Life;
 
         player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerScript>();
         HB = GameObject.FindGameObjectWithTag("Content").gameObject.GetComponent<HealthBar>();
@@ -46,7 +50,7 @@ public class ScriptBoss : MonoBehaviour {
         {
 
             float PlaybackTime = stateInfo.normalizedTime;
-            if (PlaybackTime > 0.2 && PlaybackTime < 0.7)
+            if (PlaybackTime > 0.2f && PlaybackTime < 0.7f)
             {
 
                 attackCollider.enabled = true;
@@ -56,6 +60,15 @@ public class ScriptBoss : MonoBehaviour {
                 attackCollider.enabled = false;
 
             }
+        }
+        if (Life >= 0)
+        {
+            sliderlife.value = Life;
+        }
+
+        if(Life <= 0)
+        {
+            anim.SetTrigger("die");
         }
     }
      void OnTriggerEnter2D(Collider2D collision)
@@ -69,34 +82,38 @@ public class ScriptBoss : MonoBehaviour {
 
     public void IddleBoss()
     {
-        anim.SetTrigger("Boss_Idle");
+        anim.SetTrigger("idle");
         IdleAttack = false;
         StartCoroutine(ComecarCoroutine());
     }
     public void AttackingBoss()
     {
-        anim.SetTrigger("Attack");
+        anim.SetTrigger("attack");
         IdleAttack = true;
         attacking = !attacking;
         StartCoroutine(ComecarCoroutine());
     }
     public void FindPlayer(Vector3 pos)
     {
-        player.BossPosition();
+        
         pos += offset;
         transform.position = pos;
         AttackingBoss();
     }
    
-
+    public void dead()
+    {
+        Destroy(gameObject);
+    }
 
    public IEnumerator ComecarCoroutine()
     {
-        yield return new WaitForSeconds(7.5f);
+        yield return new WaitForSeconds(4.5f);
         if(IdleAttack == false)
         {
-            FindPlayer(transform.position);
-        }else
+            player.BossPosition();
+        }
+        else
         {
             IddleBoss();
         }
