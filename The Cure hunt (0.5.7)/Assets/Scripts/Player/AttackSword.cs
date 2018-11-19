@@ -93,5 +93,19 @@ public class AttackSword : MonoBehaviour {
                 }
             }
         }
+
+        if (collision.CompareTag("Boss"))
+        {
+            critico = Random.Range(1, 101);
+            ScriptBoss boss = collision.GetComponent<ScriptBoss>();
+            if (critico <= sword.SwordCurrentCriticoChance)
+            {
+                boss.Life -= sword.Sword_CurrentDamage * 2;
+            }
+            else
+                boss.Life -= sword.Sword_CurrentDamage;
+
+        }
+
     }
 }

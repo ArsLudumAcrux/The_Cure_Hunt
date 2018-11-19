@@ -49,6 +49,7 @@ public class PlayerScript : MonoBehaviour {
         sword = GetComponent<Sword>();
         magic = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Magic>();
         cooldown = GameObject.FindGameObjectWithTag("CoolDown").GetComponent<CoolDown>();
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<ScriptBoss>();
 
 
         ShieldPotionMult = 1;
@@ -99,11 +100,11 @@ public class PlayerScript : MonoBehaviour {
             fillValueTest = Mathf.Clamp(RunTimePotion - Time.time, 0, CurrentPotion.Duration);
             expfillamount.fillAmount = fillValueTest / CurrentPotion.Duration;
         }
-           
-            
-        
 
-        
+
+
+
+       
 
         
 
@@ -208,6 +209,10 @@ public class PlayerScript : MonoBehaviour {
         }
 
     }
+    public void BossPosition()
+    {
+        FindObjectOfType<ScriptBoss>().FindPlayer(transform.position);
+    }
 
     void Magia()
     {
@@ -231,12 +236,7 @@ public class PlayerScript : MonoBehaviour {
         if (collision.tag == "TriggerBosque2")
             FindObjectOfType<MiniMapCamera>().MapaAtual = "Bosque2";
         if (collision.tag == "TriggerChefe")
-            FindObjectOfType<MiniMapCamera>().MapaAtual = "Chefe";
-
-
-        if (collision.tag == "TriggerChefe")
-            boss.StartCoroutine(boss.ComecarCoroutine());
-
+            FindObjectOfType<MiniMapCamera>().MapaAtual = "Chefe";     
     }
 
 
@@ -259,6 +259,10 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AreaScript>().ChamarCoroutine("Bosque 2");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos3 = 0;
+        }
+        if (collision.tag == "TriggerChefe")
+        {
+            StartCoroutine(boss.ComecarCoroutine());
         }
     }
 

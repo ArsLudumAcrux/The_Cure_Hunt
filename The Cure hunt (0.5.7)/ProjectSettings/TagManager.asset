@@ -25,6 +25,7 @@ TagManager:
   - Coin
   - ExpBar
   - CoolDown
+  - Boss
   layers:
   - Default
   - TransparentFX
