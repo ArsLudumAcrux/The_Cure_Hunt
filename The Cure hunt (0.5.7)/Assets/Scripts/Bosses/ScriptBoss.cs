@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 public class ScriptBoss : MonoBehaviour {
 
-    public bool IdleAttack;
+    public bool IdleBool;
+    public bool AttackBool;
+    public bool SpellBool;
+    public bool IdleBool2;
+
+
+
     public float Damage;
     public float Life;
-    public Transform Teletransporte;
+
+
     public bool attacking;
-    public int rand;
+
     public CircleCollider2D attackCollider;
     public Slider sliderlife;
 
@@ -18,14 +25,27 @@ public class ScriptBoss : MonoBehaviour {
 
     PlayerScript player;
     HealthBar HB;
-    public Transform playerposition;
-  
+    Magic magic;
+
+
+
+    public GameObject PrefabSlime;
+    public GameObject[] PosicoesSlime;
+    public int countslime;
+
 
     Animator anim;
 
 	// Use this for initialization
 	void Start () {
-        IdleAttack = false;
+        IdleBool = false;
+        IdleBool2 = false;
+        AttackBool = true;
+        SpellBool = false;
+
+        countslime = 2;
+       
+
         offset = new Vector3(0, 3f);
         anim = gameObject.GetComponent<Animator>();
         attacking = false;
@@ -36,7 +56,7 @@ public class ScriptBoss : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerScript>();
         HB = GameObject.FindGameObjectWithTag("Content").gameObject.GetComponent<HealthBar>();
-
+        magic = GameObject.FindGameObjectWithTag("GameManager").gameObject.GetComponent<Magic>();
 
     }
 
@@ -79,20 +99,50 @@ public class ScriptBoss : MonoBehaviour {
         }
     }
 
-
+    public void IddleBoss2()
+    {
+        anim.SetTrigger("idle");
+        IdleBool = false;
+        IdleBool2 = false;
+        AttackBool = true;
+        SpellBool = false;
+        StartCoroutine(ComecarCoroutine());
+    }
     public void IddleBoss()
     {
         anim.SetTrigger("idle");
-        IdleAttack = false;
+        IdleBool = false;
+        IdleBool2 = false;
+        AttackBool = false;
+        SpellBool = true;
         StartCoroutine(ComecarCoroutine());
     }
     public void AttackingBoss()
     {
         anim.SetTrigger("attack");
-        IdleAttack = true;
+        IdleBool = true;
+        IdleBool2 = false;
+        AttackBool = false;
+        SpellBool = false;
         attacking = !attacking;
         StartCoroutine(ComecarCoroutine());
     }
+    public void SpellBoss()
+    {
+        anim.SetTrigger("spell");
+        for (int i = 0; i < countslime; i++)
+        {
+            int intposicao = i;
+            Instantiate(PrefabSlime, PosicoesSlime[intposicao].transform.position, Quaternion.identity);
+        }
+        IdleBool = false;
+        IdleBool2 = true;
+        AttackBool = false;
+        SpellBool = false;
+        StartCoroutine(ComecarCoroutine());
+    }
+
+
     public void FindPlayer(Vector3 pos)
     {
         
@@ -101,21 +151,30 @@ public class ScriptBoss : MonoBehaviour {
         AttackingBoss();
     }
    
-    public void dead()
+    public void DeadBoss()
     {
+        magic.DisableGemaBloq();
         Destroy(gameObject);
     }
 
    public IEnumerator ComecarCoroutine()
     {
         yield return new WaitForSeconds(4.5f);
-        if(IdleAttack == false)
+        if(AttackBool == true)
         {
             player.BossPosition();
         }
-        else
+        else if(IdleBool == true)
         {
             IddleBoss();
+        }
+        else if (IdleBool2 == true)
+        {
+            IddleBoss2();
+        }
+        else if(SpellBool == true)
+        {
+            SpellBoss();
         }
                    
     }

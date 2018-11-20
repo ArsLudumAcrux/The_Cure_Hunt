@@ -93,6 +93,10 @@ public class Magic : MonoBehaviour {
     //        Text[i].gameObject.SetActive(false);
     //    }
     //}
+    public void DisableGemaBloq()
+    {
+        GemasBloqueadas[0].gameObject.SetActive(true);
+    }
     public void Gema(string name)
     {
         if (name == "Floresta")
