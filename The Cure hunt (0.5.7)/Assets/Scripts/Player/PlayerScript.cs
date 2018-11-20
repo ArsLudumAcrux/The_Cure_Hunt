@@ -27,7 +27,17 @@ public class PlayerScript : MonoBehaviour {
     CoolDown cooldown;
     ScriptBoss boss;
 
- 
+    [Space]
+    [Header("Cameras")]
+    public GameObject maincamera;
+    public GameObject bosscamera;
+
+
+    [Space]
+
+
+
+
     public float RunTimePotion;
     public float fillValueTest;
     public PotionScriptableObj CurrentPotion;
@@ -56,6 +66,8 @@ public class PlayerScript : MonoBehaviour {
         TimePotionMult = 1;
         LuckPotionMult = 1;
 
+        maincamera.gameObject.SetActive(true);
+        bosscamera.gameObject.SetActive(false);
 
 
 
@@ -236,7 +248,20 @@ public class PlayerScript : MonoBehaviour {
         if (collision.tag == "TriggerBosque2")
             FindObjectOfType<MiniMapCamera>().MapaAtual = "Bosque2";
         if (collision.tag == "TriggerChefe")
-            FindObjectOfType<MiniMapCamera>().MapaAtual = "Chefe";     
+            FindObjectOfType<MiniMapCamera>().MapaAtual = "Chefe";  
+        
+
+        if(collision.tag == "TriggerChefe")
+        {
+            maincamera.gameObject.SetActive(false);
+            bosscamera.gameObject.SetActive(true);
+        }
+        else
+        {
+            maincamera.gameObject.SetActive(true);
+            bosscamera.gameObject.SetActive(false);
+        }
+
     }
 
 
@@ -244,24 +269,26 @@ public class PlayerScript : MonoBehaviour {
     {
         if (collision.tag == "TriggerBosque")
         {
-            FindObjectOfType<AreaScript>().ChamarCoroutine("Bosque");
+            FindObjectOfType<AreaScript>().ChamarCoroutine("Reserva Florestal");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos = 0;
         }
         if (collision.tag == "TriggerCaverna")
         {
-            FindObjectOfType<AreaScript>().ChamarCoroutine("Caverna");
+            FindObjectOfType<AreaScript>().ChamarCoroutine("Caverna do Diabo");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos2 = 0;
         }
         if (collision.tag == "TriggerBosque2")
         {
-            FindObjectOfType<AreaScript>().ChamarCoroutine("Bosque 2");
+            FindObjectOfType<AreaScript>().ChamarCoroutine("Bosque de Álamos");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos3 = 0;
         }
         if (collision.tag == "TriggerChefe")
         {
+            FindObjectOfType<AreaScript>().ChamarCoroutine("Sala do Chefe");
+
             StartCoroutine(boss.ComecarCoroutine());
         }
     }
