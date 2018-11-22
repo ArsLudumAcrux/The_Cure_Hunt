@@ -27,6 +27,16 @@ public class AreaScript : MonoBehaviour {
 		anim.Play ("NomeMapa_Desaparecer");
 		
 	}
+    public IEnumerator Morreu(string morreu)
+    {
+        anim.Play("NomeMapa");
+        textoArea.text = morreu;
+        ShadowArea.text = morreu;
+
+        yield return new WaitForSeconds(2f);
+        anim.Play("NomeMapa_Desaparecer");
+    }
+ 
 
     public void ChamarCoroutine(string name)
     {

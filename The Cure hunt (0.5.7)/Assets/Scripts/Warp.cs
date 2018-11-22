@@ -23,12 +23,18 @@ public class Warp : MonoBehaviour
     //Transição de 1 segundo
 	float fadeTime = 0.8f;
 
-    
+
+    public PlayerScript player;
 
 	// Area
 	 GameObject area;
 
-	void Awake ()
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+    }
+
+    void Awake ()
 	{
 		// Assim nos asseguramos que o TARGET foi estabelecido ou lançaremos o EXCEPT
 		Assert.IsNotNull(target);
@@ -117,15 +123,44 @@ public class Warp : MonoBehaviour
 		}
 
 	}
+    public IEnumerator FadeMorreu()
+    {
+        string morreu = "Morreu, Game Over!";
+        FadeIn();
+        area.GetComponent<AreaScript>().Morreu(morreu);
+        yield return new WaitForSeconds(fadeTime);
+        GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HPFull();
+
+        if (player.UltimoMapa == "mapa1")
+        {
+            player.player.transform.position = player.Respawn1.transform.position;
+            player.player.SetActive(true);
+            FadeOut();
+        }
+        else if (player.UltimoMapa == "mapa2")
+        {
+            player.transform.position = player.Respawn2.transform.position;
+            player.player.SetActive(true);
+            FadeOut();
+        }
+        else if (player.UltimoMapa == "mapa3")
+        {
+            player.transform.position = player.Respawn3.transform.position;
+            player.player.SetActive(true);
+            FadeOut();
+        }
+
+
+    }
 
 	//método para ativar a transição de entrada.
-	void FadeIn () {
+	public void FadeIn () {
 		start = true;
 		isFadeIn = true;
 	}
 
 	//método para desativar a transição.
-	void FadeOut () {
+	public void FadeOut () {
 		isFadeIn = false;
 	}
 }

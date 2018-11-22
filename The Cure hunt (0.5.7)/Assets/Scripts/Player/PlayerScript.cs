@@ -11,7 +11,10 @@ public class PlayerScript : MonoBehaviour {
     public float ShieldPotionMult;
     public float LuckPotionMult;
     public float TimePotionMult;
-    
+    public float RunTimePotion;
+    public float fillValueTest;
+    public PotionScriptableObj CurrentPotion;
+
     public bool UsingPotion;
     public bool Debuff;
     public Image expfillamount;
@@ -34,14 +37,18 @@ public class PlayerScript : MonoBehaviour {
 
 
     [Space]
+    [Header("Morreu Configs")]
+    public string UltimoMapa;
+    public bool mapa1;
+    public bool mapa2;
+    public bool mapa3;
+    Warp warp;
+    public GameObject Respawn1;
+    public GameObject Respawn2;
+    public GameObject Respawn3;
+    public GameObject player;
 
-
-
-
-    public float RunTimePotion;
-    public float fillValueTest;
-    public PotionScriptableObj CurrentPotion;
-
+    [Space]
 
     public CircleCollider2D attackCollider;
 
@@ -60,7 +67,7 @@ public class PlayerScript : MonoBehaviour {
         magic = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Magic>();
         cooldown = GameObject.FindGameObjectWithTag("CoolDown").GetComponent<CoolDown>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<ScriptBoss>();
-
+        warp = GameObject.FindGameObjectWithTag("Warp").GetComponent<Warp>();
 
         ShieldPotionMult = 1;
         TimePotionMult = 1;
@@ -68,6 +75,10 @@ public class PlayerScript : MonoBehaviour {
 
         maincamera.gameObject.SetActive(true);
         bosscamera.gameObject.SetActive(false);
+
+        mapa1 = false;
+        mapa2 = false;
+        mapa3 = false;
 
 
 
@@ -114,7 +125,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
 
-
+        print(UltimoMapa);
 
        
 
@@ -272,18 +283,33 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AreaScript>().ChamarCoroutine("Reserva Florestal");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos = 0;
+            if(mapa1 == false)
+            {
+                mapa1 = true;
+                UltimoMapa = "mapa1";
+            }
         }
         if (collision.tag == "TriggerCaverna")
         {
             FindObjectOfType<AreaScript>().ChamarCoroutine("Caverna do Diabo");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos2 = 0;
+            if (mapa2 == false)
+            {
+                mapa2 = true;
+                UltimoMapa = "mapa2";
+            }
         }
         if (collision.tag == "TriggerBosque2")
         {
             FindObjectOfType<AreaScript>().ChamarCoroutine("Bosque de Álamos");
             GameManager gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             gamemanager.monstrosMortos3 = 0;
+            if (mapa3 == false)
+            {
+                mapa3 = true;
+                UltimoMapa = "mapa3";
+            }
         }
         if (collision.tag == "TriggerChefe")
         {
@@ -407,4 +433,11 @@ public class PlayerScript : MonoBehaviour {
 
 		rb2d.MovePosition(rb2d.position + Mov * (speed * LuckPotionMult) * Time.deltaTime);
 	}
+
+
+    public void Morreu()
+    {
+        player.SetActive(false);
+        StartCoroutine(warp.FadeMorreu());
+    }
 }

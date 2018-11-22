@@ -10,12 +10,14 @@ public class HealthBar : MonoBehaviour
     public float HP_Current;
     public Image HP_Bar;
     public Statistics stats;
+    Animator anim;
     
 
     // Use this for initialization
     void Start () {
         stats = FindObjectOfType<Statistics>();
         HP_Bar = GetComponent<Image>();
+        anim = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<Animator>();
 
 
         HP_Current = stats.HP_Max;
@@ -31,12 +33,15 @@ public class HealthBar : MonoBehaviour
 
         HP_Bar.fillAmount = HP_Current / stats.HP_Max;
    
-        //if (HP_Current == 0)
-        //{
-            
-        //    Debug.Log("Player is DEAD!!!");
-        //}
+        if (HP_Current == 0)
+        {
+            anim.SetBool("Dead", true);
+        }
        
+    }
+    public void HPFull()
+    {
+        HP_Current = stats.HP_Max;
     }
     
 }

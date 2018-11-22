@@ -558,15 +558,23 @@ MonoBehaviour:
   ShieldPotionMult: 0
   LuckPotionMult: 0
   TimePotionMult: 0
+  RunTimePotion: 0
+  fillValueTest: 0
+  CurrentPotion: {fileID: 0}
   UsingPotion: 0
   Debuff: 0
   expfillamount: {fileID: 751480835}
   speed: 5
   maincamera: {fileID: 350767014}
   bosscamera: {fileID: 63751157}
-  RunTimePotion: 0
-  fillValueTest: 0
-  CurrentPotion: {fileID: 0}
+  UltimoMapa: 
+  mapa1: 0
+  mapa2: 0
+  mapa3: 0
+  Respawn1: {fileID: 1203259687}
+  Respawn2: {fileID: 1087908155}
+  Respawn3: {fileID: 349133901}
+  player: {fileID: 15355993}
   attackCollider: {fileID: 187470022}
   shadow: {fileID: 589923943}
   InitialMap: {fileID: 1444772994}
@@ -5705,6 +5713,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &223179988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223179989}
+  m_Layer: 0
+  m_Name: Morreu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223179989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223179988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -33.354324, y: -84.65969, z: -0.0764239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1203259688}
+  - {fileID: 1087908156}
+  - {fileID: 349133902}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224913744
 GameObject:
   m_ObjectHideFlags: 0
@@ -9184,6 +9223,34 @@ MonoBehaviour:
   TmxPosition: {x: 1106.67, y: 960.333}
   TmxSize: {x: 92.3333, y: 161.333}
   TmxRotation: 0
+--- !u!1 &349133901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349133902}
+  m_Layer: 0
+  m_Name: Respawn 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349133902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349133901}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.99, y: 120.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 223179989}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350054918
 GameObject:
   m_ObjectHideFlags: 0
@@ -10628,8 +10695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: -116}
-  m_SizeDelta: {x: 800, y: 550}
+  m_AnchoredPosition: {x: -230, y: -105}
+  m_SizeDelta: {x: 1420.2, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399854145
 MonoBehaviour:
@@ -10642,8 +10709,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 1.1, y: 1.1}
+  m_EffectColor: {r: 0.18823531, g: 0.18039216, b: 0.8627451, a: 1}
+  m_EffectDistance: {x: 1.5, y: 1.5}
   m_UseGraphicAlpha: 1
 --- !u!114 &399854146
 MonoBehaviour:
@@ -10656,8 +10723,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectColor: {r: 0.18823531, g: 0.18039216, b: 0.8627451, a: 1}
+  m_EffectDistance: {x: 12, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &399854147
 MonoBehaviour:
@@ -10671,7 +10738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7372549, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10680,7 +10747,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5af3fbc08faa32346a9120d41945a5fa, type: 3}
-    m_FontSize: 190
+    m_FontSize: 300
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -10710,7 +10777,7 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 18.31, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &400299536
@@ -12312,7 +12379,7 @@ GameObject:
   - component: {fileID: 479277756}
   m_Layer: 0
   m_Name: Warp(Caverna->Bosque2)
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12331,6 +12398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2131593396}
   targetMap: {fileID: 827367075}
+  player: {fileID: 0}
 --- !u!61 &479277757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25572,7 +25640,7 @@ GameObject:
   - component: {fileID: 1008341683}
   m_Layer: 0
   m_Name: Warp(Chefe-->Bosque2)
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27030,7 +27098,7 @@ GameObject:
   - component: {fileID: 1057746733}
   m_Layer: 0
   m_Name: Warp(Bosque-->Caverna)
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27049,6 +27117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1347997931}
   targetMap: {fileID: 1904532878}
+  player: {fileID: 0}
 --- !u!61 &1057746734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28389,6 +28458,34 @@ MonoBehaviour:
   TmxPosition: {x: 865, y: 384.5}
   TmxSize: {x: 46.5, y: 46.5}
   TmxRotation: 0
+--- !u!1 &1087908155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1087908156}
+  m_Layer: 0
+  m_Name: Respawn 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1087908156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1087908155}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36.28, y: 64.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 223179989}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088383637
 GameObject:
   m_ObjectHideFlags: 0
@@ -29709,7 +29806,7 @@ GameObject:
   - component: {fileID: 1129593478}
   m_Layer: 0
   m_Name: 'Warp(Bosque2-->Chefe) '
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29728,6 +29825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1008341680}
   targetMap: {fileID: 1084551255}
+  player: {fileID: 0}
 --- !u!61 &1129593479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31745,6 +31843,34 @@ MonoBehaviour:
   TmxPosition: {x: 1139.82, y: 1303.45}
   TmxSize: {x: 24.3636, y: 38.7273}
   TmxRotation: 0
+--- !u!1 &1203259687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203259688}
+  m_Layer: 0
+  m_Name: Respawn 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1203259688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1203259687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.94, y: -0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 223179989}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203430467
 GameObject:
   m_ObjectHideFlags: 0
@@ -34969,7 +35095,7 @@ GameObject:
   - component: {fileID: 1347997933}
   m_Layer: 0
   m_Name: Warp(Caverna-->Bosque)
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35003,6 +35129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1057746732}
   targetMap: {fileID: 1444772994}
+  player: {fileID: 0}
 --- !u!61 &1347997934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38920,7 +39047,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.010009766, y: 0}
-  m_SizeDelta: {x: 600, y: 150}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493865216
 MonoBehaviour:
@@ -38935,7 +39062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.740566, g: 0.85503024, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -38944,7 +39071,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f2d7925fa5b15e4ca0cc87c1287714f, type: 3}
-    m_FontSize: 80
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -40809,7 +40936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1576221253
 Animator:
   serializedVersion: 3
@@ -42673,7 +42800,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -46934,8 +47061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -670}
-  m_SizeDelta: {x: 800, y: 550}
+  m_AnchoredPosition: {x: -201.99916, y: -659.00037}
+  m_SizeDelta: {x: 1420.2, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795660034
 MonoBehaviour:
@@ -46948,8 +47075,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 1.1, y: 1.1}
+  m_EffectColor: {r: 0.18823531, g: 0.18039216, b: 0.8627451, a: 1}
+  m_EffectDistance: {x: 1.5, y: 1.5}
   m_UseGraphicAlpha: 1
 --- !u!114 &1795660035
 MonoBehaviour:
@@ -46962,8 +47089,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectColor: {r: 0.18823531, g: 0.18039216, b: 0.8627451, a: 1}
+  m_EffectDistance: {x: 12, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &1795660036
 MonoBehaviour:
@@ -46977,7 +47104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7372549, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -46986,11 +47113,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5af3fbc08faa32346a9120d41945a5fa, type: 3}
-    m_FontSize: 190
+    m_FontSize: 300
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 200
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -47016,7 +47143,7 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 18.31, y: -1}
   m_UseGraphicAlpha: 0
 --- !u!1 &1799267035
@@ -54376,7 +54503,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.0700073, y: -3.2200012}
-  m_SizeDelta: {x: 600, y: 150}
+  m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062699877
 MonoBehaviour:
@@ -54400,11 +54527,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f2d7925fa5b15e4ca0cc87c1287714f, type: 3}
-    m_FontSize: 80
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 80
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -61298,7 +61425,7 @@ GameObject:
   - component: {fileID: 2131593398}
   m_Layer: 0
   m_Name: Warp(Bosque2-->Caverna)
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61332,6 +61459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 479277755}
   targetMap: {fileID: 1904532878}
+  player: {fileID: 0}
 --- !u!61 &2131593399
 BoxCollider2D:
   m_ObjectHideFlags: 0
