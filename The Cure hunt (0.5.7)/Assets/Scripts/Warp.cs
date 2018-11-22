@@ -149,10 +149,15 @@ public class Warp : MonoBehaviour
             player.player.SetActive(true);
             FadeOut();
         }
+        else if (player.UltimoMapa == "mapa4")
+        {
+            player.transform.position = player.Respawn4.transform.position;
+            player.player.SetActive(true);
+            FadeOut();
 
 
+        }
     }
-
 	//método para ativar a transição de entrada.
 	public void FadeIn () {
 		start = true;
