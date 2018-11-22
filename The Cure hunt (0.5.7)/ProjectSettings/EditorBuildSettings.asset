@@ -5,18 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/TEST Mateus.unity
-    guid: 755417627818c204abe1a4fa2ab80f6e
+    path: Assets/Scenes/Menu.unity
+    guid: 4835fc75f57471349b345814f2f1872a
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_1.unity
+    guid: a9c609f94ca18c14586d4bab96a2c826
   - enabled: 1
     path: Assets/Scenes/NaoSei1.unity
     guid: ae8ee15e3911e904cbe983dec218881d
-  - enabled: 1
-    path: Assets/Scenes/Game_Level_1.unity
-    guid: 93014b5f53a3c4b438e36c037e0e314e
   - enabled: 1
     path: Assets/Scenes/NaoSei2.unity
     guid: 70c663e7af40dc943bd410a156237f36
