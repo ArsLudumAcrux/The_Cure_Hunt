@@ -42,10 +42,12 @@ public class PlayerScript : MonoBehaviour {
     public bool mapa1;
     public bool mapa2;
     public bool mapa3;
+    public bool mapa4;
     Warp warp;
     public GameObject Respawn1;
     public GameObject Respawn2;
     public GameObject Respawn3;
+    public GameObject Respawn4;
     public GameObject player;
 
     [Space]
@@ -115,7 +117,8 @@ public class PlayerScript : MonoBehaviour {
         if (RunTimePotion <= Time.time && UsingPotion == true)
         {
             PotionShieldEnd();
-
+            PotionLuckEnd();
+            TimePotionEnd();
         }
 
         if (UsingPotion == true)
@@ -125,7 +128,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
 
-        print(UltimoMapa);
+
 
        
 
@@ -267,11 +270,26 @@ public class PlayerScript : MonoBehaviour {
             maincamera.gameObject.SetActive(false);
             bosscamera.gameObject.SetActive(true);
         }
-        else
+        if (collision.tag == "TriggerBosque")
         {
             maincamera.gameObject.SetActive(true);
             bosscamera.gameObject.SetActive(false);
         }
+        if (collision.tag == "TriggerCaverna")
+        {
+            maincamera.gameObject.SetActive(true);
+            bosscamera.gameObject.SetActive(false);
+        }
+        if (collision.tag == "TriggerBosque2")
+        {
+            maincamera.gameObject.SetActive(true);
+            bosscamera.gameObject.SetActive(false);
+        }
+        // else
+        //{
+        //maincamera.gameObject.SetActive(true);
+        //bosscamera.gameObject.SetActive(false);
+        // }
 
     }
 
@@ -314,7 +332,11 @@ public class PlayerScript : MonoBehaviour {
         if (collision.tag == "TriggerChefe")
         {
             FindObjectOfType<AreaScript>().ChamarCoroutine("Sala do Chefe");
-
+            if(mapa4 == false)
+            {
+                mapa4 = true;
+                UltimoMapa = "mapa4";
+            }
             StartCoroutine(boss.ComecarCoroutine());
         }
     }
@@ -333,7 +355,8 @@ public class PlayerScript : MonoBehaviour {
         {
             if (potionUsed == potions[i])
             {
-                if (!(potionUsed.potionFunction == 0 && GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current == GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().stats.HP_Max)) {
+
+                if (potionUsed.potionFunction == 0 && !(GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current == GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().stats.HP_Max)) {
 
                     GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HP_Current += potionUsed.healthGain;
 
@@ -341,20 +364,23 @@ public class PlayerScript : MonoBehaviour {
 
                 } else if(potionUsed.potionFunction != 0 && !UsingPotion)
                 {
+
                     CurrentPotion = potionUsed;
-                    if (potionUsed.potionFunction == 1 && !UsingPotion)
+                    print(CurrentPotion.name + ": " + CurrentPotion.Duration);
+
+                    if (potionUsed.potionFunction == 1)
                     {
                         UsePotionShield();
                     }
-                    else if (potionUsed.potionFunction == 2 && !UsingPotion && Debuff == true)
+                    else if (potionUsed.potionFunction == 2 && Debuff == true)
                     {
                         UseRecoveryPotion();
                     }
-                    else if (potionUsed.potionFunction == 3 && !UsingPotion)
+                    else if (potionUsed.potionFunction == 3)
                     {
                         UseTimePotion();
                     }
-                    else if (potionUsed.potionFunction == 4 && !UsingPotion)
+                    else if (potionUsed.potionFunction == 4)
                     {
                         UseLuckPotion();
                     }
@@ -369,12 +395,13 @@ public class PlayerScript : MonoBehaviour {
                 }
 
                 break;
-            }
+            }        
         }
     }
     public void UsePotionShield()
     {
         RunTimePotion = CurrentPotion.Duration + Time.time;
+        expfillamount.color = new Color(30, 144, 255);
         ShieldPotionMult = 0.5f;
         UsingPotion = true;
         //Invoke("PotionShieldEnd", 60f);
@@ -383,6 +410,7 @@ public class PlayerScript : MonoBehaviour {
     {
         ShieldPotionMult = 1f;
         UsingPotion = false;
+        print("a");
     }
     public void UseLuckPotion()
     {
@@ -409,6 +437,7 @@ public class PlayerScript : MonoBehaviour {
     public void UseTimePotion()
     {
         TimePotionMult = 0.7f;
+        expfillamount.color = new Color(30, 144, 255);
         RunTimePotion = CurrentPotion.Duration + Time.time;
         UsingPotion = true;
     }
@@ -438,6 +467,6 @@ public class PlayerScript : MonoBehaviour {
     public void Morreu()
     {
         player.SetActive(false);
-        StartCoroutine(warp.FadeMorreu());
+        warp.StartCoroutine(warp.FadeMorreu());
     }
 }

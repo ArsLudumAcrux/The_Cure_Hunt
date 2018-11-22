@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour
 
         HP_Bar.fillAmount = HP_Current / stats.HP_Max;
    
-        if (HP_Current == 0)
+        if (HP_Current <= 0)
         {
             anim.SetBool("Dead", true);
         }

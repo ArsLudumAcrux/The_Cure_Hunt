@@ -18,7 +18,7 @@ public class ScriptBoss : MonoBehaviour {
 
     public bool attacking;
 
-    public CircleCollider2D attackCollider;
+    //public CircleCollider2D attackCollider;
     public Slider sliderlife;
 
     public Vector3 offset;
@@ -48,9 +48,9 @@ public class ScriptBoss : MonoBehaviour {
 
         offset = new Vector3(0, 3f);
         anim = gameObject.GetComponent<Animator>();
-        attacking = false;
-        attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
-        attackCollider.enabled = false;
+       // attacking = false;
+       // attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
+       // attackCollider.enabled = false;
         sliderlife.maxValue = Life;
         sliderlife.value = Life;
 
@@ -66,21 +66,21 @@ public class ScriptBoss : MonoBehaviour {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         bool attacking = stateInfo.IsName("Attack");
 
-        if (attacking == true)
-        {
-
-            float PlaybackTime = stateInfo.normalizedTime;
-            if (PlaybackTime > 0.2f && PlaybackTime < 0.7f)
-            {
-
-                attackCollider.enabled = true;
-            }
-            else
-            {
-                attackCollider.enabled = false;
-
-            }
-        }
+       //if (attacking == true)
+       //{
+       //
+       //    float PlaybackTime = stateInfo.normalizedTime;
+       //    if (PlaybackTime > 0.2f && PlaybackTime < 0.7f)
+       //    {
+       //
+       //        attackCollider.enabled = true;
+       //    }
+       //    else
+       //    {
+       //        attackCollider.enabled = false;
+       //
+       //    }
+       //}
         if (Life >= 0)
         {
             sliderlife.value = Life;
@@ -124,7 +124,7 @@ public class ScriptBoss : MonoBehaviour {
         IdleBool2 = false;
         AttackBool = false;
         SpellBool = false;
-        attacking = !attacking;
+       // attacking = !attacking;
         StartCoroutine(ComecarCoroutine());
     }
     public void SpellBoss()
