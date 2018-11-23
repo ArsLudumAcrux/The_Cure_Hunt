@@ -11,6 +11,7 @@ public class UIPotionPrefs : MonoBehaviour {
     public Image image;
     public PlayerScript player;
     public Text NamePotion;
+    
 
 
 
@@ -24,5 +25,15 @@ public class UIPotionPrefs : MonoBehaviour {
     {
         player.UsePotion(potioninfo);
         hudmenu.UpdateListItens();
+    }
+    public void UpdateDescriptionText()
+    {
+        hudmenu.descriptiontext.text = potioninfo.potionDescription;
+        StartCoroutine(apagartexto());
+    }
+    IEnumerator apagartexto()
+    {
+        yield return new WaitForSeconds(2f);
+        hudmenu.descriptiontext.text = "";
     }
 }

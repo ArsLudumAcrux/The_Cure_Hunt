@@ -33,7 +33,9 @@ public class Hud_Menu : MonoBehaviour
     public GameObject uiprefab;
     public RectTransform ScrollContent;
     public List<UIPotionPrefs> ListaItens;
-    public PlayerScript player; 
+    public PlayerScript player;
+    public Text descriptiontext;
+    public Text naopodeusar;
 
 
     Sword sword;
@@ -91,6 +93,7 @@ public class Hud_Menu : MonoBehaviour
 
     public void UpdateListItens()
     {
+        descriptiontext.text = "";
         ClearItemList();
         for (int i = 0; i < player.potions.Count; i++)
         {
@@ -107,6 +110,7 @@ public class Hud_Menu : MonoBehaviour
         {
             Destroy(ListaItens[i].gameObject);   
         }
+        descriptiontext.text = "";
         ListaItens.Clear();
     }
 
@@ -145,6 +149,7 @@ public class Hud_Menu : MonoBehaviour
             PanelInv.SetActive(false);
             PanelMagia.SetActive(false);
 
+            descriptiontext.text = "";
             ClearItemList();
         }
         if (name == "Config")
@@ -159,6 +164,7 @@ public class Hud_Menu : MonoBehaviour
             PanelInv.SetActive(false);
             PanelMagia.SetActive(false);
 
+            descriptiontext.text = "";
             ClearItemList();
         }
         if (name == "Inv")
@@ -173,6 +179,7 @@ public class Hud_Menu : MonoBehaviour
             PanelInv.SetActive(true);
             PanelMagia.SetActive(false);
 
+            descriptiontext.text = "";
             UpdateListItens();
 
         }
@@ -188,6 +195,7 @@ public class Hud_Menu : MonoBehaviour
             PanelInv.SetActive(false);
             PanelMagia.SetActive(true);
 
+            descriptiontext.text = "";
             ClearItemList();
         }
     } 
@@ -214,6 +222,20 @@ public class Hud_Menu : MonoBehaviour
         //Time.timeScale = 1;
         //Cursor.visible = false;
     }
+
+    public void NaoPodeUsar()
+    {
+        descriptiontext.gameObject.SetActive(false);
+        naopodeusar.text = "Desculpe, isso não é possivel!";
+        StartCoroutine(apagartexto());
+    }
+    IEnumerator apagartexto()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        naopodeusar.text = "";
+        descriptiontext.gameObject.SetActive(true);
+    }
+
     IEnumerator Animacao()
     {
         
