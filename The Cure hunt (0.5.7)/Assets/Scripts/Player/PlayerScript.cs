@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour {
     Magic magic;
     CoolDown cooldown;
     ScriptBoss boss;
+    UIPotionPrefs uipotions;
 
     [Space]
     [Header("Cameras")]
@@ -49,6 +50,8 @@ public class PlayerScript : MonoBehaviour {
     public GameObject Respawn3;
     public GameObject Respawn4;
     public GameObject player;
+    public int Vidas;
+    public AudioListener audiolistener;
 
     [Space]
 
@@ -70,10 +73,13 @@ public class PlayerScript : MonoBehaviour {
         cooldown = GameObject.FindGameObjectWithTag("CoolDown").GetComponent<CoolDown>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<ScriptBoss>();
         warp = GameObject.FindGameObjectWithTag("Warp").GetComponent<Warp>();
+        
 
         ShieldPotionMult = 1;
         TimePotionMult = 1;
         LuckPotionMult = 1;
+
+        Debuff = false;
 
         maincamera.gameObject.SetActive(true);
         bosscamera.gameObject.SetActive(false);
@@ -128,7 +134,10 @@ public class PlayerScript : MonoBehaviour {
         }
 
 
+        if(Vidas <= 0)
+        {
 
+        }
 
        
 
@@ -362,13 +371,13 @@ public class PlayerScript : MonoBehaviour {
 
                     potions.RemoveAt(i);
 
-                } else if(potionUsed.potionFunction != 0 && !UsingPotion)
+                } else if(potionUsed.potionFunction != 0)
                 {
 
                     CurrentPotion = potionUsed;
                     print(CurrentPotion.name + ": " + CurrentPotion.Duration);
 
-                    if (potionUsed.potionFunction == 1)
+                    if (potionUsed.potionFunction == 1 && !UsingPotion)
                     {
                         UsePotionShield();
                     }
@@ -376,11 +385,11 @@ public class PlayerScript : MonoBehaviour {
                     {
                         UseRecoveryPotion();
                     }
-                    else if (potionUsed.potionFunction == 3)
+                    else if (potionUsed.potionFunction == 3 && !UsingPotion)
                     {
                         UseTimePotion();
                     }
-                    else if (potionUsed.potionFunction == 4)
+                    else if (potionUsed.potionFunction == 4 && !UsingPotion)
                     {
                         UseLuckPotion();
                     }
@@ -391,7 +400,8 @@ public class PlayerScript : MonoBehaviour {
                 }
                 else
                 {
-                    print("Você não precisa disso agora");
+                    Hud_Menu HudMenu = GameObject.FindGameObjectWithTag("Area").GetComponent<Hud_Menu>();
+                    HudMenu.NaoPodeUsar();
                 }
 
                 break;
@@ -466,6 +476,8 @@ public class PlayerScript : MonoBehaviour {
 
     public void Morreu()
     {
+        Vidas--;
+        audiolistener.enabled = false;
         player.SetActive(false);
         warp.StartCoroutine(warp.FadeMorreu());
     }

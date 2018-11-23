@@ -29,6 +29,7 @@ public class AreaScript : MonoBehaviour {
 	}
     public IEnumerator Morreu(string morreu)
     {
+        print("morreu");
         anim.Play("NomeMapa");
         textoArea.text = morreu;
         ShadowArea.text = morreu;

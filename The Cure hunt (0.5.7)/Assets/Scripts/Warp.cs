@@ -127,7 +127,8 @@ public class Warp : MonoBehaviour
     {
         string morreu = "Morreu, Game Over!";
         FadeIn();
-        area.GetComponent<AreaScript>().Morreu(morreu);
+        var area = FindObjectOfType<AreaScript>();
+        area.StartCoroutine(area.Morreu(morreu));
         yield return new WaitForSeconds(fadeTime);
         GameObject.FindGameObjectWithTag("Content").GetComponent<HealthBar>().HPFull();
 
@@ -135,24 +136,28 @@ public class Warp : MonoBehaviour
         {
             player.player.transform.position = player.Respawn1.transform.position;
             player.player.SetActive(true);
+            player.audiolistener.enabled = true;
             FadeOut();
         }
         else if (player.UltimoMapa == "mapa2")
         {
             player.transform.position = player.Respawn2.transform.position;
             player.player.SetActive(true);
+            player.audiolistener.enabled = true;
             FadeOut();
         }
         else if (player.UltimoMapa == "mapa3")
         {
             player.transform.position = player.Respawn3.transform.position;
             player.player.SetActive(true);
+            player.audiolistener.enabled = true;
             FadeOut();
         }
         else if (player.UltimoMapa == "mapa4")
         {
             player.transform.position = player.Respawn4.transform.position;
             player.player.SetActive(true);
+            player.audiolistener.enabled = true;
             FadeOut();
 
 

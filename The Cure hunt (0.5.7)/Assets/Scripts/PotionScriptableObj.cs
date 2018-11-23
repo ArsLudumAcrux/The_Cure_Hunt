@@ -13,6 +13,7 @@ public class PotionScriptableObj : ScriptableObject {
     public int potionFunction;
 
     public string potionName;
+    public string potionDescription;
     public Sprite artwork;
 
     public float Duration;

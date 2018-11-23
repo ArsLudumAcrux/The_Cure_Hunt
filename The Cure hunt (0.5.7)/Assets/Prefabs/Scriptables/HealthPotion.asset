@@ -15,5 +15,7 @@ MonoBehaviour:
   healthGain: 75
   potionFunction: 0
   potionName: "Po\xE7\xE3o de cura"
+  potionDescription: "Essa po\xE7\xE3o da 80 de vida ao Arthur, por\xE9m se ele tiver
+    com vida cheia ela n\xE3o poder\xE1 ser usada."
   artwork: {fileID: 21300000, guid: 2ae395ae832d41041ae53c6a09cc7ae3, type: 3}
   Duration: 1
