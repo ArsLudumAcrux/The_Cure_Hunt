@@ -411,7 +411,7 @@ public class PlayerScript : MonoBehaviour {
     public void UsePotionShield()
     {
         RunTimePotion = CurrentPotion.Duration + Time.time;
-        expfillamount.color = new Color(30, 144, 255);
+        expfillamount.color = new Color(0, 118, 255);
         ShieldPotionMult = 0.5f;
         UsingPotion = true;
         //Invoke("PotionShieldEnd", 60f);
@@ -419,6 +419,7 @@ public class PlayerScript : MonoBehaviour {
     public void PotionShieldEnd()
     {
         ShieldPotionMult = 1f;
+        expfillamount.color = new Color(255, 255, 255);
         UsingPotion = false;
         print("a");
     }
@@ -447,13 +448,14 @@ public class PlayerScript : MonoBehaviour {
     public void UseTimePotion()
     {
         TimePotionMult = 0.7f;
-        expfillamount.color = new Color(30, 144, 255);
+        expfillamount.color = new Color(255, 235, 0);
         RunTimePotion = CurrentPotion.Duration + Time.time;
         UsingPotion = true;
     }
     public void TimePotionEnd()
     {
         TimePotionMult = 1;
+        expfillamount.color = new Color(255, 255, 255);
         UsingPotion = false;
     }
     public void UseRecoveryPotion()
