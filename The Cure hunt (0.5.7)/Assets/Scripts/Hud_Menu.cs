@@ -37,6 +37,9 @@ public class Hud_Menu : MonoBehaviour
     public Text descriptiontext;
     public Text naopodeusar;
 
+    [Space(50)]
+    public AudioSource audiosourceplayer;
+    public bool pausemusic;
 
     Sword sword;
 
@@ -46,6 +49,7 @@ public class Hud_Menu : MonoBehaviour
     {
         sword = GameObject.FindGameObjectWithTag("Player").GetComponent<Sword>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        audiosourceplayer = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
 
         anim = GetComponent<Animator>();
         PanelMenu.SetActive(false);
@@ -203,8 +207,15 @@ public class Hud_Menu : MonoBehaviour
     {
         PanelMenu.SetActive(!PanelMenu.activeInHierarchy);
         paused = !paused;
-        float blablbla = paused ? 0 : 1;
-        Time.timeScale = blablbla;
+        float pause = paused ? 0 : 1;
+        Time.timeScale = pause;
+        pausemusic = !pausemusic;
+        if (pausemusic == true) {
+            audiosourceplayer.Pause();
+        }
+        else if(pausemusic == false){
+            audiosourceplayer.UnPause();
+        }
         //Cursor.visible = !Cursor.visible;
 
     }
@@ -212,8 +223,17 @@ public class Hud_Menu : MonoBehaviour
     {
         PanelMenu.SetActive(false);
         paused = false;
-        float blablbla = paused ? 0 : 1;
-        Time.timeScale = blablbla;
+        float pause = paused ? 0 : 1;
+        Time.timeScale = pause;
+        pausemusic = !pausemusic;
+        if (pausemusic == true)
+        {
+            audiosourceplayer.Pause();
+        }
+        else if (pausemusic == false)
+        {
+            audiosourceplayer.UnPause();
+        }
 
         for (int i = 0; i < sword.BordaEspada.Length; i++)
         {
