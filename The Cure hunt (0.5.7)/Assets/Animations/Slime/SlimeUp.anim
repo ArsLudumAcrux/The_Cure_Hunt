@@ -3,7 +3,7 @@
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: SlimeUp
   serializedVersion: 6
@@ -28,13 +28,13 @@ AnimationClip:
       value: {fileID: 21300060, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
     - time: 0.33333334
       value: {fileID: 21300062, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
-    - time: 0.41666666
+    - time: 0.4166667
       value: {fileID: 21300064, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
     - time: 0.5
       value: {fileID: 21300066, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
     - time: 0.5833333
       value: {fileID: 21300068, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
-    - time: 0.6666667
+    - time: 0.6666666
       value: {fileID: 21300070, guid: 4ef4a93a6f732ee49a1b15ddbce17f43, type: 3}
     attribute: m_Sprite
     path: 
@@ -69,7 +69,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.74999994
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
